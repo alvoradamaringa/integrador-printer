@@ -1,0 +1,146 @@
+/*
+------------------------------------------------------
+Criando o Banco de Dados:
+------------------------------------------------------
+*/
+CREATE DATABASE projetoIntegrador;
+USE projetoIntegrador;
+/*
+------------------------------------------------------
+Criando as Tabelas:
+------------------------------------------------------
+*/
+CREATE TABLE curso (
+id_curso BIGINT,
+descricao VARCHAR(45)
+);
+
+CREATE TABLE bancaprofessor (
+id_banca BIGINT,
+tipo_professor ENUM('o','c','e')
+);
+
+CREATE TABLE pesquisatipotcc (
+id_pesquisa BIGINT,
+descricao VARCHAR(100)
+);
+
+CREATE TABLE professor (
+id_professor BIGINT,
+descricao VARCHAR(100)
+);
+
+CREATE TABLE defesaaluno (
+id_defesa_aluno BIGINT,
+id_desesa BIGINT,
+id_aluno BIGINT,
+id_pesquisa_tipo_tcc BIGINT,
+id_banca BIGINT,
+id_defesa_comentario BIGINT,
+nota DECIMAL(3,1),
+data DATETIME,
+status VARCHAR(45),
+tema VARCHAR(200)
+);
+
+CREATE TABLE usuario (
+id_usuario BIGINT,
+login VARCHAR(45),
+senha VARCHAR(45)
+);
+
+CREATE TABLE nivelusuario (
+id_nivel_usuario BIGINT,
+descricao VARCHAR(100)
+);
+
+CREATE TABLE defesacomentario (
+id_defesa_comentario BIGINT,
+id_professor_curso BIGINT,
+comentarios varchar(500)
+);
+
+CREATE TABLE pessoa (
+id_pessoa BIGINT,
+nome VARCHAR(2),
+cpf CHAR(11),
+endereco VARCHAR(200),
+sexo ENUM('m','f'),
+telefone CHAR(15),
+email VARCHAR(45)
+);
+
+CREATE TABLE aluno (
+id_aluno BIGINT,
+id_pessoa BIGINT,
+ra CHAR(9)
+);
+
+CREATE TABLE professorcurso (
+id_curso BIGINT,
+id_professor BIGINT
+);
+
+CREATE TABLE alunocurso (
+id_aluno BIGINT,
+id_curso BIGINT
+);
+/*
+------------------------------------------------------
+Modificando as Tabelas:
+------------------------------------------------------
+*/
+ALTER TABLE curso MODIFY id_curso BIGINT NOT NULL;
+ALTER TABLE bancaprofessor MODIFY id_banca BIGINT NOT NULL;
+ALTER TABLE pesquisatipotcc MODIFY id_pesquisa BIGINT NOT NULL;
+ALTER TABLE professor MODIFY id_professor BIGINT NOT NULL;
+ALTER TABLE defesaaluno MODIFY nota DECIMAL NOT NULL;
+ALTER TABLE defesaaluno MODIFY data DECIMAL NOT NULL;
+ALTER TABLE defesaaluno MODIFY status DECIMAL NOT NULL;
+ALTER TABLE defesaaluno MODIFY tema DECIMAL NOT NULL;
+ALTER TABLE usuario MODIFY id_usuario BIGINT NOT NULL;
+ALTER TABLE nivelusuario MODIFY id_nivel_usuario BIGINT NOT NULL;
+ALTER TABLE defesacomentario MODIFY id_defesa_comentario BIGINT NOT NULL;
+ALTER TABLE defesacomentario MODIFY id_professor_curso BIGINT NOT NULL;
+ALTER TABLE defesacomentario MODIFY comentarios VARCHAR(500) NOT NULL;
+ALTER TABLE pessoa MODIFY id_pessoa BIGINT NOT NULL;
+ALTER TABLE aluno MODIFY id_aluno BIGINT NOT NULL;
+ALTER TABLE aluno MODIFY id_pessoa BIGINT NOT NULL;
+ALTER TABLE professorcurso MODIFY id_professor BIGINT NOT NULL;
+/*
+------------------------------------------------------
+Adicionando Constraint PK:
+------------------------------------------------------
+*/
+ALTER TABLE curso ADD CONSTRAINT pk_curso  PRIMARY KEY (id_curso);
+ALTER TABLE bancaprofessor ADD CONSTRAINT pk_banca  PRIMARY KEY (id_banca);
+ALTER TABLE pesquisatipotcc ADD CONSTRAINT pk_pesquisa  PRIMARY KEY (id_pesquisa);
+ALTER TABLE professor ADD CONSTRAINT pk_professor PRIMARY KEY (id_professor);
+ALTER TABLE defesaaluno ADD CONSTRAINT pk_defesa_aluno PRIMARY KEY (id_defesa_aluno);
+ALTER TABLE usuario ADD CONSTRAINT pk_usuario PRIMARY KEY (id_usuario);
+ALTER TABLE nivelusuario ADD CONSTRAINT pk_nivel_usuario PRIMARY KEY (id_nivel_usuario);
+ALTER TABLE defesacomentario ADD CONSTRAINT pk_defesa_comentario PRIMARY KEY (id_defesa_comentario);
+ALTER TABLE pessoa ADD CONSTRAINT pk_pessoa PRIMARY KEY (id_pessoa);
+ALTER TABLE aluno ADD CONSTRAINT pk_aluno PRIMARY KEY(id_aluno);
+ALTER TABLE professorcurso ADD CONSTRAINT pk_professorcurso PRIMARY KEY (id_curso);
+/*
+------------------------------------------------------
+Adicionando Constraint UNIQUE:
+------------------------------------------------------
+*/
+ALTER TABLE pessoa ADD CONSTRAINT cpf_unique UNIQUE(cpf);
+/*
+------------------------------------------------------
+Adicionando Constraint FK:
+------------------------------------------------------
+*/
+ALTER TABLE defesaaluno ADD CONSTRAINT fk_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
+ALTER TABLE defesaaluno ADD CONSTRAINT fk_bancaprofessor FOREIGN KEY (id_banca) REFERENCES bancaprofessor(id_banca);
+ALTER TABLE defesaaluno ADD CONSTRAINT fk_defesacomentario FOREIGN KEY (id_defesa_comentario) REFERENCES defesacomentario(id_defesa_comentario);
+ALTER TABLE aluno ADD CONSTRAINT fk_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa);
+ALTER TABLE alunocurso ADD CONSTRAINT FOREIGN KEY (id_aluno) REFERENCES aluno (id_aluno);
+ALTER TABLE alunocurso ADD CONSTRAINT FOREIGN KEY (id_curso) REFERENCES curso (id_curso);
+ALTER TABLE curso ADD CONSTRAINT fk_curso FOREIGN KEY (id_curso) REFERENCES professor(id_professor);
+ALTER TABLE bancaprofessor ADD CONSTRAINT fk_banca FOREIGN KEY (id_banca) REFERENCES professor(id_professor);
+ALTER TABLE defesaaluno ADD CONSTRAINT fk_pesquisatipotcc FOREIGN KEY (id_pesquisa_tipo_tcc) references pesquisatipotcc(id_pesquisa);
+ALTER TABLE usuario ADD CONSTRAINT fk_nivelusuario FOREIGN KEY (id_usuario) REFERENCES nivelusuario(id_nivel_usuario);
