@@ -1,1 +1,5 @@
-Repositório utilizado para armazenar as classes do Projeto Integrador
+public class DefesaComentario {
+    private Defesa defesa;
+    private Professor professor;
+    private String comentario;
+}
