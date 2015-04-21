@@ -1,0 +1,4 @@
+public class PesquisaTipoTcc {
+    private Long pesquidatipocc;
+    private String descricao;
+}
