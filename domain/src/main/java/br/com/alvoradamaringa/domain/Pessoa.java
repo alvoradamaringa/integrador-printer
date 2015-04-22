@@ -1,3 +1,5 @@
+package br.com.alvoradamaringa.domain;
+
 import java.util.Date;
 
 public class Pessoa {
