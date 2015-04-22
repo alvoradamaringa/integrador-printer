@@ -1,3 +1,5 @@
+package br.com.alvoradamaringa.domain;
+
 public class Usuario {
     private Long idUsario;
     private IdNivelUsuario idNivelUsuario;
