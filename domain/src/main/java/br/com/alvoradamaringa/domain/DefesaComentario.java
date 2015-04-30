@@ -1,7 +1,5 @@
 package br.com.alvoradamaringa.domain;
 
-import br.com.alvoradamaringa.persistence;
-
 public class DefesaComentario extends DefesaComentarioDAOImpl {
 
     private DefesaAluno defesaComentario;
@@ -30,5 +28,9 @@ public class DefesaComentario extends DefesaComentarioDAOImpl {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+    
+    public defesaComentario addComentario(String addComentario){
+    	this.defesaComentario = setComentario(addComentario);
     }
 }
