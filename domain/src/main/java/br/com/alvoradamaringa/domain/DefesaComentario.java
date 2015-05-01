@@ -30,7 +30,7 @@ public class DefesaComentario extends DefesaComentarioDAOImpl {
         this.comentario = comentario;
     }
     
-    public defesaComentario addComentario(String addComentario){
-    	this.defesaComentario = setComentario(addComentario);
+    public void adicionarComentario(String adicionarComentario){
+    	this.defesaComentario = setComentario(adicionarComentario);
     }
 }
