@@ -1,2 +1,0 @@
-public interface CursoDAO extends GenericDAO<Long, Curso>{
-}
