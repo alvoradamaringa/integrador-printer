@@ -1,3 +1,5 @@
+package br.com.alvoradamaringa.domain;
+
 /**
  *
  * @author jhony

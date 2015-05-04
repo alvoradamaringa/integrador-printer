@@ -1,7 +1,7 @@
 package br.com.alvoradamaringa.domain;
 
 public class NivelUsuario {
-	private String Descrição;
-	private Int id_nivel_usuario;
+	private String descricao;
+	private Integer id_nivel_usuario;
 	
 }
