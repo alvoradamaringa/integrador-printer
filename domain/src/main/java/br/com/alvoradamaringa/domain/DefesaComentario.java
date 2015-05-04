@@ -7,10 +7,6 @@ public class DefesaComentario extends DefesaComentarioDAOImpl {
     private ProfessorCurso professorComentario;
     private String comentario;
 
-    public void comentarDefesa() {
-
-    }
-
     public DefesaAluno getDefesaComentario() {
         return defesaComentario;
     }
