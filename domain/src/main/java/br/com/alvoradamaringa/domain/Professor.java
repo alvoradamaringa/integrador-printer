@@ -1,4 +1,4 @@
-package professor;
+package br.com.alvoradamaringa.domain;
 
 /**
  *
