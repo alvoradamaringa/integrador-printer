@@ -1,6 +1,5 @@
 package br.com.alvoradamaringa.domain;
 
-
 public class DefesaComentario extends DefesaComentarioDAOImpl {
 
     private DefesaAluno defesaComentario;
@@ -30,9 +29,9 @@ public class DefesaComentario extends DefesaComentarioDAOImpl {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-    
-    public void adicionarComentario(String adicionarComentario){
-        this.setComentario(adicionarComentario);
+
+    public void adicionarComentario(String comentario) {
+        this.comentario = comentario;
     }
-    
+
 }
