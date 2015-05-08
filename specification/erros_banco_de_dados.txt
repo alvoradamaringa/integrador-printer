@@ -1,0 +1,7 @@
+Remover campo id_defesa da table defesaaluno
+Remover campo id_defesa_comentario da table defesaaluno
+Adicionar FK id_defesa_aluno na table defesacomentario
+Remover campo id_banca da table defesaaluno
+Adicionar PK id_banca_professor na table bancaprofessor
+Adicionar FK id_defesa_aluno na table bancaprofessor
+Alterar campo status da table defesaaluno para char(1)
