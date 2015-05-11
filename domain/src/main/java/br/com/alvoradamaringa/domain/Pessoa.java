@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class Pessoa {
     
-    private Integer idPessoa;
+    private Long idPessoa;
     private String nome;
     private String cpf;
     private String endereco;
-    private String sexo;
+    private enum sexo{M,F};
     private String telefone;
     private String email;
     private Date dataNascimento;
     
-    public void setId(Integer idPessoa){
+    public void setId(Long idPessoa){
         this.idPessoa = idPessoa;
     }
     
-    public Integer getId(){
+    public Long getId(){
         return this.idPessoa;
     }
     
@@ -45,11 +45,11 @@ public class Pessoa {
         return this.endereco;       
     }
     
-    public void setSexo(String sexo){
+    public void setSexo(enum sexo){
         this.sexo = sexo;
     }
     
-    public String getSexo(){
+    public enum getSexo(){
         return this.sexo;
     }
     
