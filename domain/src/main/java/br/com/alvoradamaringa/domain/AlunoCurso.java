@@ -1,29 +1,25 @@
 
-import java.math.BigInteger;
-
 public class AlunoCurso {
-    private BigInteger idAlunoCurso;
-    private Aluno idAluno;
-    private Curso idCurso;
+    private Long idAlunoCurso;
+    private Aluno aluno;
+    private Curso curso;
     
-     public void setId(BigIntege idAlunoCurso){
-          this.idAlunoCursoo=idAlunoCurso;
+     public void setId(Long idAlunoCurso){
+          this.idAlunoCursoo = idAlunoCurso;
     }
-    public Integer getId(BigIntege idAluno){
-          return this.idAluno;
+    public Long getId(){
+          return this.idAlunoCurso;
     }
-    public void setId(Curso idcurso){
-          this.idcurso=idcurso;
+    public void setCurso(Curso curso){
+          this.curso = curso;
      }
-    public Integer getId(Curso idcurso){
-          return this.idcurso;
+    public Curso getCurso(){
+          return this.curso;
     }
-    public void setId(Aluno idAluno){
-          this.idAluno=idAluno;
+    public void setAluno(Aluno aluno){
+          this.aluno = aluno;
     }
-    public Integer getId(Aluno idAluno){
-          return this.idAluno;
+    public Aluno getAluno(){
+          return this.aluno;
     }
-    
-
 }
