@@ -2,7 +2,7 @@ package br.com.alvoradamaringa.domain;
 
 public class Usuario {
     private Long idUsuario;
-    private IdNivelUsuario idNivelUsuario;
+    private NivelUsuario nivelUsuario;
     private String login;
     private String senha;
 	
@@ -15,12 +15,12 @@ public class Usuario {
 		return this.idUsuario;
 	}
 	
-	public void setIdNivelUsuario (IdNivelUsuario idNivelUsuario) {
-		this.idNivelUsuario = idNivelUsuario;
+	public void setNivelUsuario (NivelUsuario nivelUsuario) {
+		this.nivelUsuario = nivelUsuario;
 	}
 	
-	public Integer getIdNivelUsuario(){
-		return this.IdNivelUsuario;
+	public Integer getNivelUsuario(){
+		return this.nivelUsuario;
 	}
 	
 	public void setLogin(String login){
