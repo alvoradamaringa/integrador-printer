@@ -1,28 +1,33 @@
 package br.com.alvoradamaringa.domain;
 
-public class Aluno{
-	private long idAluno;
-	private pessoa idPessoa;
+public class Aluno {
+
+	private Long idAluno;
+	private Pessoa pessoa;
 	private String Ra;
 	
-	private long getidAluno(){
-		return this.idAluno;
+	public void adicionarPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
-	private void setIdAluno(long idAluno){
-		this.idAlunoCurso = idAluno;
+
+	public Long getIdAluno() {
+		return idAluno;
 	}
-		
-	private pessoa getidPessoa(){
-		return this.idPessoa;
+
+	public void setIdAluno(Long idAluno) {
+		this.idAluno = idAluno;
 	}
-	private void setidPessoa(pessoa idPessoa){
-		this.idPessoa = idPessoa;
+
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
-					
-	private String getRa(){
-		return this.ra;
+
+	public String getRa() {
+		return Ra;
 	}
-	private void setStringRa(ra String Ra){
-		this.String Ra = Ra;
+
+	public void setRa(String ra) {
+		Ra = ra;
 	}
+
 }

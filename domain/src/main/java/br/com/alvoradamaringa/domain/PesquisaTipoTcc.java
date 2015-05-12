@@ -1,24 +1,24 @@
 package br.com.alvoradamaringa.domain;
 
 public class PesquisaTipoTcc {
-    private PesquisaTipoTcc pesquisaTipoTcc;
-    private String descricao;
-	
-	
-	public void setpesquidatipocc(Long pesquidatipocc){
-		this.pesquidatipocc = pesquidatipocc;
+
+	private Long idPesquisaTipoTcc;
+	private String descricao;
+
+	public Long getIdPesquisaTipoTcc() {
+		return idPesquisaTipoTcc;
 	}
-	
-	public Integer getpesquidatipocc(){
-		return this.pesquidatipocc;
+
+	public void setIdPesquisaTipoTcc(Long idPesquisaTipoTcc) {
+		this.idPesquisaTipoTcc = idPesquisaTipoTcc;
 	}
-	
-	public void setdescricao(String descricao){
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	public String getdescricao(){
-		return this.descricao;
-	
-	}
-	
+
+}
