@@ -1,7 +1,7 @@
 package br.com.alvoradamaringa.domain;
 
-public class BancaProfessor {
-	private Banca banca;
-	private Professor professor;
-	private String tipoProfessor;
+public class BancaProfessor extends DefesaAluno {
+	private Long idBancaProfessor;
+ 	private Professor professor;
+	private enum tipoProfessor{O,C,E};
 }
