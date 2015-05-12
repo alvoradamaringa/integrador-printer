@@ -12,27 +12,26 @@ Criando as Tabelas:
 */
 
 CREATE TABLE bancaprofessor (
-id_banca BIGINT,
+id_banca_professor BIGINT,
 id_professor BIGINT,
+id_defesa_aluno BIGINT,
 tipo_professor ENUM('o','c','e')
 );
 
 CREATE TABLE defesaaluno (
 id_defesa_aluno INT,
-id_desesa BIGINT,
 id_aluno BIGINT,
 id_pesquisa_tipo_tcc BIGINT,
-id_banca BIGINT,
-id_defesa_comentario BIGINT,
 nota DECIMAL(3,1),
 data DATETIME,
-status VARCHAR(45),
+status CHAR(1),
 tema VARCHAR(200)
 );
 
 CREATE TABLE defesacomentario (
 id_defesa_comentario BIGINT,
 id_professor_curso BIGINT,
+id_defesa_aluno BIGINT,
 comentario varchar(500)
 );
 
@@ -180,7 +179,7 @@ Adicionando Constraint PK:
 ------------------------------------------------------
 */
 
-ALTER TABLE bancaprofessor ADD CONSTRAINT pk_bancaprofessor PRIMARY KEY (id_banca);
+ALTER TABLE bancaprofessor ADD CONSTRAINT pk_bancaprofessor PRIMARY KEY (id_banca_professor);
 ALTER TABLE defesaaluno ADD CONSTRAINT pk_defesaaluno PRIMARY KEY (id_defesa_aluno);
 ALTER TABLE defesacomentario ADD CONSTRAINT pk_defesacomentario PRIMARY KEY (id_defesa_comentario);
 ALTER TABLE nivelusuario ADD CONSTRAINT pk_nivelusuario PRIMARY KEY (id_nivel_usuario);
@@ -199,12 +198,13 @@ ALTER TABLE professor ADD CONSTRAINT pk_professor PRIMARY KEY (id_professor);
 Adicionando Constraint FK:
 ------------------------------------------------------
 */
+
 ALTER TABLE bancaprofessor ADD CONSTRAINT fk_professor_em_bancaprofessor FOREIGN KEY (id_professor) REFERENCES professor(id_professor);
+ALTER TABLE bancaprofessor ADD CONSTRAINT fk_defesaaluno_em_bancaprofessor FOREIGN KEY (id_defesa_aluno) REFERENCES defesaaluno(id_defesa_aluno);
 ALTER TABLE defesaaluno ADD CONSTRAINT fk_aluno_em_defesaaluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
 ALTER TABLE defesaaluno ADD CONSTRAINT fk_pesquisatipotcc_em_defesaaluno FOREIGN KEY (id_pesquisa_tipo_tcc) REFERENCES pesquisatipotcc(id_pesquisa_tipo_tcc);
-ALTER TABLE defesaaluno ADD CONSTRAINT fk_bancaprofessor_em_defesaaluno FOREIGN KEY (id_banca) REFERENCES bancaprofessor(id_banca);
-ALTER TABLE defesaaluno ADD CONSTRAINT fk_defesacomentario_em_defesaaluno FOREIGN KEY (id_defesa_comentario) REFERENCES defesacomentario(id_defesa_comentario);
 ALTER TABLE defesacomentario ADD CONSTRAINT fk_professorcurso_em_defesacomentario FOREIGN KEY (id_professor_curso) REFERENCES professorcurso(id_professor_curso);
+ALTER TABLE defesacomentario ADD CONSTRAINT fk_defesaaluno_em_defesacomentario FOREIGN KEY (id_defesa_aluno) REFERENCES defesaaluno(id_defesa_aluno);
 ALTER TABLE usuario ADD CONSTRAINT fk_nivelusuario_em_usuario FOREIGN KEY (id_nivel_usuario) REFERENCES nivelusuario(id_nivel_usuario);
 ALTER TABLE aluno ADD CONSTRAINT fk_pessoa_em_aluno FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa);
 ALTER TABLE alunocurso ADD CONSTRAINT fk_aluno_em_alunocurso FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
