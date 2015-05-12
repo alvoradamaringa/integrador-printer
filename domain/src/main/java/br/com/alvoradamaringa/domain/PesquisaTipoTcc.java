@@ -1,7 +1,7 @@
 package br.com.alvoradamaringa.domain;
 
 public class PesquisaTipoTcc {
-    private PesquisaTipoTcc pesquisaTipoTcc;
+    private Long idPesquisaTipoTcc;
     private String descricao;
 	
 	
