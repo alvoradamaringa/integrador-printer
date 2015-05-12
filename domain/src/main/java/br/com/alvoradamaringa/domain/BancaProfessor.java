@@ -1,26 +1,35 @@
 package br.com.alvoradamaringa.domain;
 
-public class BancaProfessor extends DefesaAluno {
+public class BancaProfessor {
+
 	private Long idBancaProfessor;
+	private DefesaAluno defesaAluno;
 	private Professor professor;
-	private enum tipoProfessor{O,C,E};
-    
-	public Long getIdBancaProfessor(){
+	private TipoProfessor tipoProfessor;
+	
+	public void adicionarProfessor(Professor professor, TipoProfessor tipoProfessor) {
+		this.professor = professor;
+		this.tipoProfessor = tipoProfessor;
+	}
+	
+	public void adicionarDefesaAluno(DefesaAluno defesaAluno) {
+		this.defesaAluno = defesaAluno;
+	}
+
+	public Long getIdBancaProfessor() {
 		return idBancaProfessor;
 	}
-	public void setIdBancaProfessor(Long idBancaProfessor){
-	        this.idBancaProfessor=idBancaProfessor;
+
+	public Professor getProfessor() {
+		return professor;
 	}
-	public Professor getProfessor(){
-		 return professor;
+
+	public DefesaAluno getDefesaAluno() {
+		return defesaAluno;
 	}
-	public void setProfessor(Professor professor ){
-		 this.professor=professor;
+
+	public TipoProfessor getTipoProfessor() {
+		return tipoProfessor;
 	}
-	public enum getTipoProfessor(){
-		 return tipoProfessor;
-	}	   
-	public void setTipoProfessor(enum tipoProfessor){
-	        this.tipoProfessor=tipoProfessor;
-	    }		  
+
 }
