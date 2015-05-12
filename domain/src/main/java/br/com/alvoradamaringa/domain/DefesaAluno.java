@@ -1,22 +1,16 @@
 package br.com.alvoradamaringa.domain;
 
-/**
- *
- * @author jhony
- */
-public class DefesaAluno {
-    
-    private int Defesaaluno defesaaluno;
-    private long Defesa defesa;
-    private long Aluno aluno;
-    private long Pesquisatipotcc pesquisatipotcc;
-    private long Banca banca;
-    private long Defesacomentario defesacomentario;
-    private double nota;
-    private String data;
-    private String status;
+import java.math.BigDecimal;
+import java.util.Date;
+
+public class DefesaAluno extends DefesaAlunoDAOImpl {
+
+    private Long idDefesaAluno;
+    private Aluno aluno;
+    private PesquisaTipoTcc pesquisaTipoTcc;
+    private BigDecimal nota;
+    private Date data;
+    private Status status;
     private String tema;
-    
-    
-    
+
 }
