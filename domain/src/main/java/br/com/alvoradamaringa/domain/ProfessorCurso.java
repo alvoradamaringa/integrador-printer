@@ -5,27 +5,11 @@ public class ProfessorCurso {
 	private Curso curso;
 	private Professor professor;
 		
-	public Long getIdProfessorCurso(){
-		return idProfessorCurso;
-	}
-	
-	public void setIdProfessorCurso(Long idProfessorCurso){
-		this.idProfessorCurso = idProfessorCurso;
-	}
-	
-	public Curso getCurso(){
-		return curso;
-	}
-	
-	public void setCurso(Curso curso){
+	public void adicionarCurso(Curso curso){
 		this.curso = curso;
 	}
 	
-	public Professor getProfessor(){
-		return professor;
-	}
-	
-	public void setProfessor(Professor professor){
+	public void adicionarProfessor(Professor professor){
 		this.professor = professor;
 	}
 	
