@@ -4,6 +4,6 @@ import br.com.alvoradamaringa.domain;
 
 public interface BancaProfessorDAO extends GenericDAO<Long, BancaProfessor>{
   
-  public void consultarBancaProfessor();
+   public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor);
 
 }
