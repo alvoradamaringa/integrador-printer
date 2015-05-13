@@ -4,8 +4,8 @@ import br.com.alvoradamaringa.domain;
 
 public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements UsuarioDAO {
   
-  public void consultar(String nome, String login){
-    
+  public List<Usuario> consultar(String login, String nome) {
+    return null;
   }
 
 }
