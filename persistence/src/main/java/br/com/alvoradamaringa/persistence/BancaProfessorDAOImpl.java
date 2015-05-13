@@ -5,7 +5,7 @@ import br.com.alvoradamaringa.domain;
 public class BancaProfessorDAOImpl extends GenericDAOImpl<Long, BancaProfessor> implements BancaProfessorDAO {
   
     @Override
-    public void consultarBancaProfessor() {
++   public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor); {
 
     }
 
