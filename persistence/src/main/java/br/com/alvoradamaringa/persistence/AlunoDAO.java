@@ -1,4 +1,9 @@
-public interface AlunoDAO extends GenericDAO<Long, Aluno>{
+package br.com.alvoradamaringa.persistence;
 
-  public void consultar(long idAluno, pessoa idPessoa, String Ra);
+import br.com.alvoradamaringa.domain;
+
+public interface AlunoDAO extends GenericDAO<Long, Aluno> {
+
+	public void consultar(long idAluno, pessoa idPessoa, String Ra);
+	
 }
