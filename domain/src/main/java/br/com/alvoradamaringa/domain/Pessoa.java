@@ -1,16 +1,35 @@
 package br.com.alvoradamaringa.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Pessoa {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
+public class Pessoa implements Serializable {
+
+	private static final long serialVersionUID = 23L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_PESSOA")
 	private Long idPessoa;
 	private String nome;
 	private String cpf;
 	private String endereco;
+	@Enumerated(EnumType.ORDINAL)
 	private Sexo sexo;
 	private String telefone;
 	private String email;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATA_NASCIMENTO")
 	private Date dataNascimento;
 
 	public Long getIdPessoa() {
