@@ -15,7 +15,7 @@ public class Aluno implements Serializable {
 
 	private static final long serialVersionUID = 23L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_ALUNO")
 	private Long idAluno;
 	@ManyToOne
