@@ -6,8 +6,9 @@ import java.util.List;
 public class DefesaComentarioDAOImpl extends GenericDAOImpl<Long, DefesaComentario> implements DefesaComentarioDAO {
 
     @Override
-	public List<DefesaComentario> consultar(String comentario,
-			String professor, String curso, String aluno, Date data, String tema) {
+	public List<DefesaComentario> consultar(String nomeProfessor,
+			String nomeCurso, String nomeAluno, Date dataApresentacao,
+			String temaTcc) {
 		return null;
 	}
 

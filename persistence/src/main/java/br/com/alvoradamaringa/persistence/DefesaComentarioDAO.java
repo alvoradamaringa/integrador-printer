@@ -4,7 +4,7 @@ import br.com.alvoradamaringa.domain;
 
 public interface DefesaComentarioDAO extends GenericDAO<Long, DefesaComentario> {
 
-	public void consultar(String comentario, String professor, String curso,
-			String aluno, Date data, String tema);
+	public void consultar(String nomeProfessor, String nomeCurso,
+			String nomeAluno, Date dataApresentacao, String temaTcc);
 
 }
