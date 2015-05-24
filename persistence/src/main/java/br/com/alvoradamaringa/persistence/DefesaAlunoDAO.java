@@ -1,7 +1,12 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.Date;
+import java.util.List;
 
-public interface DefesaAlunoDAO extends GenericDAOImpl<Long, DefesaAluno> {
+import br.com.alvoradamaringa.domain.DefesaAluno;
 
+public interface DefesaAlunoDAO extends GenericDAO<Long, DefesaAluno> {
+
+	public List<DefesaAluno> consultar(String nomeAluno, Date dataDefesa);
+	
 }

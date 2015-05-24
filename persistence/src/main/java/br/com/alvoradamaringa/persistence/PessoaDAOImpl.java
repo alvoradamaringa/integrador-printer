@@ -1,11 +1,14 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
 
-public class PessoaDAOImpl extends GenericDAOImpl<Long, Pessoa> implements PessoaDAO {
+import br.com.alvoradamaringa.domain.Pessoa;
 
-	public List<Pessoa> consultar(String nome, String cpf){
-    		return null;
-  	}
+public class PessoaDAOImpl extends GenericDAOImpl<Long, Pessoa> implements
+		PessoaDAO {
+
+	public List<Pessoa> consultar(String nome, String cpf) {
+		return null;
+	}
 
 }

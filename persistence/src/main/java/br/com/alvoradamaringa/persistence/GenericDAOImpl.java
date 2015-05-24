@@ -1,5 +1,7 @@
 package br.com.alvoradamaringa.persistence;
 
+import java.util.List;
+
 public abstract class GenericDAOImpl<K, T> implements GenericDAO<K, T> {
 
 	@Override
@@ -17,4 +19,8 @@ public abstract class GenericDAOImpl<K, T> implements GenericDAO<K, T> {
 		
 	}
 
+	@Override
+	public List<T> findAll() {
+		return null;
+	}
 }

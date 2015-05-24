@@ -1,7 +1,9 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.Date;
 import java.util.List;
+
+import br.com.alvoradamaringa.domain.DefesaComentario;
 
 public class DefesaComentarioDAOImpl extends GenericDAOImpl<Long, DefesaComentario> implements DefesaComentarioDAO {
 

@@ -11,6 +11,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>br.com.alvoradamaringa</groupId>
+			<artifactId>integrador-printer-domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>persistence-api</artifactId>
 		</dependency>

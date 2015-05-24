@@ -1,9 +1,11 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
+
+import br.com.alvoradamaringa.domain.Aluno;
 
 public interface AlunoDAO extends GenericDAO<Long, Aluno> {
 
-	public List<Aluno> consultar(Long idAluno, pessoa idPessoa, String Ra);
+	public List<Aluno> consultar(String nomeAluno, String ra);
 	
 }

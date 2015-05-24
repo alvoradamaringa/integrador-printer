@@ -1,10 +1,12 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
+
+import br.com.alvoradamaringa.domain.Aluno;
 
 public class AlunoDAOImpl extends GenericDAOImpl<Long, Aluno> implements AlunoDAO {
 	
-	private void consultarAluno(Long idAluno) {
-		
+	public List<Aluno> consultar(String nomeAluno, String ra) {
+		return null;
 	}
 }
