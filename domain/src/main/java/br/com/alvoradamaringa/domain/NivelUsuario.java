@@ -8,7 +8,7 @@ public class NivelUsuario {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_nivel_usuario")
+	@Column(name = "ID_NIVEL_USUARIO")
 	private Long idNivelUsuario;
 	private String descricao;
 
