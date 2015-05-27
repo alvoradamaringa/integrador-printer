@@ -1,5 +1,9 @@
 package br.com.alvoradamaringa.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class NivelUsuario {
 
 	@Id
