@@ -1,53 +1,56 @@
 package br.com.alvoradamaringa.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "USUARIO")
 public class Usuario {
-
 	@Id
-	@GeneratedValue
-	@Column(name = "id_usuario")
+	@Column(name = "ID_USUARIO")
 	private Long idUsuario;
-
-	@Enumerated(EnumType.STRING)
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_NIVEL_USUARIO")
 	private NivelUsuario nivelUsuario;
-
-	@Column(length = 45)
 	private String login;
-
-	@Column(length = 45)
 	private String senha;
-
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
 
 	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
-	public NivelUsuario getNivelUsuario() {
-		return nivelUsuario;
+	public Long getIdUsuario() {
+		return this.idUsuario;
 	}
 
 	public void setNivelUsuario(NivelUsuario nivelUsuario) {
 		this.nivelUsuario = nivelUsuario;
 	}
 
-	public String getLogin() {
-		return login;
+	public NivelUsuario getNivelUsuario() {
+		return this.nivelUsuario;
 	}
 
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getLogin() {
+		return this.login;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSenha(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return this.senha;
 	}
 }
