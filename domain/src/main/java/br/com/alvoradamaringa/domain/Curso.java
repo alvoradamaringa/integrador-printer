@@ -1,8 +1,20 @@
 package br.com.alvoradamaringa.domain;
 
-public class Curso {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table (name = "CURSO")
+public class Curso {
+	
+	@Id
+	@Column(name = "ID_CURSO")
 	private Long idCurso;
+	
 	private String descricao;
 
 	public Long getIdCurso() {
