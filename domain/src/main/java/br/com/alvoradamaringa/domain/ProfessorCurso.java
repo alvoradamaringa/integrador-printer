@@ -1,8 +1,10 @@
 package br.com.alvoradamaringa.domain;
 @Entity
+@Table(name="PROFESSOR_CURSO")
 public class ProfessorCurso {
+    
 	@Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY )
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_PROFESSOR_CURSO")
         private Long idProfessorCurso;
         
