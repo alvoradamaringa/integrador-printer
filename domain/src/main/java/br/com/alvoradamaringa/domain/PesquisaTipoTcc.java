@@ -1,7 +1,20 @@
 package br.com.alvoradamaringa.domain;
 
-public class PesquisaTipoTcc {
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "PESQUISA_TIPO_TCC")
+public class PesquisaTipoTcc {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_PESQUISA_TIPO_TCC")
 	private Long idPesquisaTipoTcc;
 	private String descricao;
 

@@ -5,17 +5,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  *
  * @author jhony
  */
+
+@Entity
+@Table (name = "DEFESA_ALUNO")
 public class DefesaAluno {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_DEFESA_ALUNO")
 	private Long idDefesaAluno;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_ALUNO")
 	private Aluno aluno;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_PESQUISA_TIPO_TCC")
 	private PesquisaTipoTcc pesquisaTipoTcc;
+	
+	
 	private List<DefesaComentario> comentarios = new ArrayList<DefesaComentario>();
 	private BigDecimal nota;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATA")
 	private Date data;
 	private String status;
 	private String tema;
