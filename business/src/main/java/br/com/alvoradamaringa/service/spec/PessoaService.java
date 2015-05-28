@@ -1,6 +1,5 @@
 package br.com.alvoradamaringa.service.spec;
 
-import br.com.alvoradamaringa.domain.Pessoa;
 import br.com.alvoradamaringa.domain.Aluno;
 import br.com.alvoradamaringa.domain.Professor;
 

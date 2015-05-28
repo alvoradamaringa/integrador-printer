@@ -1,20 +1,23 @@
-package br.com.alvoradamaringa.bussiness;
+package br.com.alvoradamaringa.service.spec;
 
-import java.awt.List;
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
+
+import br.com.alvoradamaringa.domain.DefesaAluno;
+import br.com.alvoradamaringa.domain.DefesaComentario;
 
 public interface DefesaService {
 
     public void cadastraDefesa(DefesaAluno DefesaAluno);
 
-    public List<DefesaAluno> consultaDefesa(Integer idDefesaAluno, Date data, String tema);
+    public List<DefesaAluno> consultaDefesa(Date data, String tema, String nomeAluno);
 
-    public void excluiDefesa(DefesaAluno DefesaAluno);
+    public void excluirDefesa(DefesaAluno DefesaAluno);
 
-    public void cadastraDefesa(DefesaComentario DefesaComentario);
+    public void cadastrarDefesa(DefesaComentario DefesaComentario);
 
-    public list<DefesaCometario> consultaDefesa(String comentario);
+    public List<DefesaComentario> consultarDefesa(String comentario);
 
-    public void excluiDefesa(DefesaComentario DefesaComentario);
+    public void excluirDefesa(DefesaComentario DefesaComentario);
 
 }
