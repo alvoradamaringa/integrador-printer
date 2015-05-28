@@ -1,9 +1,27 @@
 package br.com.alvoradamaringa.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ALUNO_CURSO")
 public class AlunoCurso {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_ALUNO_CURSO")
 	private Long idAlunoCurso;
+	@ManyToOne
+	@JoinColumn(name = "ID_ALUNO")
 	private Aluno aluno;
+	@ManyToOne
+	@JoinColumn(name = "ID_CURSO")
 	private Curso curso;
 	
 	public void adicionarAluno(Aluno aluno) {
