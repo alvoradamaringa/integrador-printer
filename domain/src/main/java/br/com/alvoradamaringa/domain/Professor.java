@@ -1,5 +1,7 @@
 package br.com.alvoradamaringa.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,14 +18,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "PROFESSOR")
-public class Professor {
+public class Professor implements Serializable {
 	
+	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_PROFESSOR")
 	private Long idProfessor;
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "ID_PESSOA")
 	private Pessoa pessoa;

@@ -1,11 +1,18 @@
 package br.com.alvoradamaringa.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class NivelUsuario {
-
+@Entity
+@Table(name = "NIVEL_USUARIO")
+public class NivelUsuario  implements Serializable {
+	
+	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue
 	@Column(name = "ID_NIVEL_USUARIO")
