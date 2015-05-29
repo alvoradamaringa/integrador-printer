@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Cadastro de Usuário - Integrador</title>
+	</h:head>
+	
+	<p:panel header="Cadastro de Usuario">
+		<h:form id="formcadusuario">
+			<h:outputLabel value="* Campos Obrigátorios" />
+			<p:panelGrid columns="2">
+	        	<h:outputLabel for="identificador">ID: </h:outputLabel>
+	        	<p:inputText id="identificador" value="#{usuarioManagedBean.usuario.idUsuario}" readonly="true"/>
+	        	<h:outputLabel for="usuario">Login:</h:outputLabel>
+	        	<p:inputText id="usuario" value="#{usuarioManagedBean.usuario.login}" required="true"/>
+	        	<h:outputLabel for="senha">Senha:</h:outputLabel>
+	        	<p:password id="senha" value="#{usuarioManagedBean.usuario.senha}" required="true" />
+	        	<h:outputLabel for="nivelusuario">Nível de Usuario:</h:outputLabel>
+				<h:selectOneMenu id="nivelusuario" value="#{usuarioManagedBean.usuario.nivelUsuario}">
+					<f:selectItem itemValue="1" itemLabel="Professor" />
+					<f:selectItem itemValue="2" itemLabel="Administrador" />
+				</h:selectOneMenu>
+			</p:panelGrid>
+	    	<h:commandButton value="Cancelar"  action="#" type="submit"/>
+	    	<h:commandButton value="Limpar"  action="#" type="reset"/>
+	    	<h:commandButton value="Cadastrar" action="#{usuarioManagedBean.CadastrarUsuario()}" type="submit"/>
+		</h:form>
+	</p:panel>
+</html>
