@@ -22,7 +22,6 @@
 >
 > Copiar o dretório [mysql](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/mysql) para o diretório *WILDFLY_HOME\modules\system\layers\base\com*.
 > 
->**WILDFLY_HOME** é o caminho da instalação do Wildfly Application Server.
 
 #### Iniciando a Aplicação
 
@@ -30,8 +29,12 @@
 
 ##### Windows
 
-`run.bat -cstandalone-integrador-printer.xml`
+`standalone.bat --server-config=standalone-integrador-printer.xml`
 
 ##### Linux
 
-`run.sh -cstandalone-integrador-printer.xml`
+`standalone.sh --server-config=standalone-integrador-printer.xml`
+
+#### Help
+
+>**WILDFLY_HOME** é o caminho da instalação do Wildfly Application Server.
