@@ -25,7 +25,7 @@
 
 #### Iniciando a Aplicação
 
-> Executar na linha de comando
+> Executar na linha de comando no diretório *WILDFLY\bin*
 
 ##### Windows
 
