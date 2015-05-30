@@ -41,6 +41,11 @@
 					<version>2.6</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>

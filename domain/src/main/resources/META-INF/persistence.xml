@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="IntegradorPrinterPU"
+		transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>java:/IntegradorPrinterDS</jta-data-source>
+		<class>br.com.alvoradamaringa.domain.Aluno</class>
+		<class>br.com.alvoradamaringa.domain.AlunoCurso</class>
+		<class>br.com.alvoradamaringa.domain.BancaProfessor</class>
+		<class>br.com.alvoradamaringa.domain.Curso</class>
+		<class>br.com.alvoradamaringa.domain.DefesaAluno</class>
+		<class>br.com.alvoradamaringa.domain.DefesaComentario</class>
+		<class>br.com.alvoradamaringa.domain.NivelUsuario</class>
+		<class>br.com.alvoradamaringa.domain.PesquisaTipoTcc</class>
+		<class>br.com.alvoradamaringa.domain.Pessoa</class>
+		<class>br.com.alvoradamaringa.domain.Professor</class>
+		<class>br.com.alvoradamaringa.domain.ProfessorCurso</class>
+		<class>br.com.alvoradamaringa.domain.Usuario</class>
+		<properties>
+			<property name="eclipselink.ddl-generation" value="none" />
+		</properties>
+	</persistence-unit>
+</persistence>
