@@ -21,11 +21,18 @@
 > Copiar o arquivo [standalone-integrador-printer.xml](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/standalone-integrador-printer.xml) para o diretório *WILDFLY_HOME\standalone\configuration*.
 >
 > Copiar o dretório [mysql](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/mysql) para o diretório *WILDFLY_HOME\modules\system\layers\base\com*.
-> 
+
+> Copiar o arquivo **integrador-printer.war** gerado após a compilação do projeto para a pasta *WILDFLY\standalone\deployments*.
+
+#### Compilando o Projeto
+
+> Executar via linha de comando no diretório do projeto.
+
+`mvn clean install`
 
 #### Iniciando a Aplicação
 
-> Executar na linha de comando no diretório *WILDFLY\bin*
+> Executar via linha de comando no diretório *WILDFLY\bin*.
 
 ##### Windows
 
