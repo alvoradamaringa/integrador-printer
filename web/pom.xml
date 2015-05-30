@@ -9,6 +9,10 @@
 	<artifactId>integrador-printer-web</artifactId>
 	<packaging>war</packaging>
 	<name>Projeto Integrador - Printer :: Web</name>
+	
+	<build>
+		<finalName>integrador-printer</finalName>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -22,11 +26,6 @@
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish</groupId> -->
-		<!-- <artifactId>javax.faces</artifactId> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.primefaces</groupId>
