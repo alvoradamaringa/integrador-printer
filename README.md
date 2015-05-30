@@ -19,6 +19,7 @@
 > Link: [Wildfly Application Server 8.2.0 Download](http://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.zip)
 >
 > Copiar o arquivo [standalone-integrador-printer.xml](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/standalone-integrador-printer.xml) para o diretório *WILDFLY_HOME\standalone\configuration*.
+>
 > Copiar o dretório [mysql](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/mysql) para o diretório *WILDFLY_HOME\modules\system\layers\base\com*.
 > 
 >**WILDFLY_HOME** é o caminho da instalação do Wildfly Application Server.
