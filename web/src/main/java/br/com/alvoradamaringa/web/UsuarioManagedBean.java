@@ -11,6 +11,7 @@ import br.com.alvoradamaringa.domain.Usuario;
 @ManagedBean
 public class UsuarioManagedBean implements Serializable {
 
+	private static final long serialVersionUID = 23L;
 	private Usuario usuario;
 	
 	public Usuario getUsuario() {
