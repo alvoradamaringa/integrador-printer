@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 
 @ViewScoped
 @ManagedBean
+
 public class FirstManagedBean implements Serializable {
 
 	private Date data = new Date();
