@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+      
+      <h:head>
+      	<title>Cadastro de Tipo de TCC - Integrador</title>
+      </h:head>
+      
+      <p:panel id="CadTipoTcc" header="Cadastro Tipo de TCC">
+      	<h:form>
+      		<p:panelGrid columns="2">
+      			<h:outputLabel for="identificador" value="ID:" />
+        		<p:inputText id="identificador" readonly="true"/>
+        		<h:outputLabel for="desc" value="Descrição:" />
+        		<p:inputText id="desc"/>
+      		</p:panelGrid>
+      		<br />
+      		<p:button type="submit" value="Confirmar" style="margin-right:50px"/>
+      		
+    		<p:button id="cancelar" value="Cancelar" />
+      	</h:form>
+      </p:panel>
+</html>
