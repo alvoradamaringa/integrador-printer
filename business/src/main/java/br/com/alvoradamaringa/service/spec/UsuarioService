@@ -1,3 +1,6 @@
+import br.com.alvoradamaringa.domain.Usuario;
+
+
 public interface UsuarioService {
 
 	public void consultarUsuario(String nome, String NivelUsuario);
