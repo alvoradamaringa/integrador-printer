@@ -6,7 +6,7 @@ import br.com.alvoradamaringa.domain.Professor;
 
 public interface ProfessorDAO extends GenericDAO<Long, Professor> {
 
-	public List<Professor> consultar(String nome);
+	public List<Professor> consultar(String nomeProfessor, String cpf);
 	
 }
 
