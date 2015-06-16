@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 import br.com.alvoradamaringa.domain.Login;
 import br.com.alvoradamaringa.service.exceptions.LoginInvalidoException;
 import br.com.alvoradamaringa.service.spec.LoginService;
+import br.com.alvoradamaringa.web.util.FacesUtils;
 
 @ViewScoped
 @ManagedBean

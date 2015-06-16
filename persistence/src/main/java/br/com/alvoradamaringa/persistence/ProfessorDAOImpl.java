@@ -9,4 +9,9 @@ public class ProfessorDAOImpl extends GenericDAOImpl<Long, Professor> implements
 	public List<Professor> consultar(String nome) {
 		return null;
 	}
+
+	@Override
+	public List<Professor> consultar(String nomeProfessor, String cpf) {
+		return null;
+	}
 }
