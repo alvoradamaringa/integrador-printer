@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+html {
+	font-family: Arial;
+	font-size: 12px;	
+	font-weight: normal;
+}
+
+.ui-panel-titlebar {
+	font-size: 14 px;
+	font-weight: bold;
+}
+
+.ui-panelgrid-cell label,
+.ui-button-text {
+	font-weight: bold;
+}
+
+.ui-panelgrid, 
+.ui-panelgrid-cell {
+	border: none !important;
+}
