@@ -20,6 +20,11 @@
 			<artifactId>integrador-printer-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>br.com.alvoradamaringa</groupId>
+			<artifactId>integrador-printer-business</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax</groupId>
