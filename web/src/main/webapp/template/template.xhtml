@@ -7,37 +7,45 @@
 
 <h:head>
 	<title>Projeto Integrador - Printer</title>
-	<h:outputStylesheet library="css" name="style.css"  /> 
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
-
 	<div id="page">
+		<p:layout fullPage="true">
 
-		<div id="header">
-			<ui:insert name="header">
-				<ui:include src="/template/header.xhtml" />
-			</ui:insert>
-		</div>
+			<p:layoutUnit position="north" >
+				<div id="header">
+					<ui:insert name="header">
+						<ui:include src="/template/header.xhtml" />
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
 
-		<div id="menu">
-			<ui:insert name="menu">
-				<ui:include src="/template/menu.xhtml" />
-			</ui:insert>
-		</div>
+			<p:layoutUnit position="west">
+				<div id="menu">
+					<ui:insert name="menu" class="menu">
+						<ui:include src="/template/menu.xhtml" />
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
 
-		<div id="content">
-			<ui:insert name="content">
-				<ui:include src="/template/content.xhtml" />
-			</ui:insert>
-		</div>
+			<p:layoutUnit position="center">
+				<div id="content" class="content">
+					<ui:insert name="content">
+						<ui:include src="/template/content.xhtml" />
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
 
-		<div id="footer">
-			<ui:insert name="footer">
-				<ui:include src="/template/footer.xhtml" />
-			</ui:insert>
-		</div>
+			<p:layoutUnit position="south">
+				<div id="footer" class="footer">
+					<ui:insert name="footer">
+						<ui:include src="/template/footer.xhtml" />
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
+		</p:layout>
 
 	</div>
-
 </h:body>
 </html>
