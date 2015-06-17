@@ -23,4 +23,7 @@ public class PessoaManagedBean implements Serializable {
 	public void CadastrarPessoa(){
 		System.out.println("Cadastro pessoa ok");
 	}
+	public void Cancelar(){
+		System.out.println("Cancelar");
+	}
 }
