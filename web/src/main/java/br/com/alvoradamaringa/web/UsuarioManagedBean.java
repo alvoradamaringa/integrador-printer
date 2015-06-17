@@ -25,4 +25,8 @@ public class UsuarioManagedBean implements Serializable {
 	public void CadastrarUsuario(){
 		System.out.println("Cadastrando Usuario");
 	}
+	
+	public void CancelarCadastroUsuario(){
+		System.out.println("Cadastro Usuario Cancelado");
+	}
 }

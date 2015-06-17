@@ -27,8 +27,8 @@
 							<f:selectItem itemValue="2" itemLabel="Administrador" />
 						</h:selectOneMenu>
 					</p:panelGrid>
-		    		<h:commandButton value="Cancelar"  action="#" type="submit"/>
-		    		<h:commandButton value="Limpar"  action="#" type="reset"/>
+		    		<h:commandButton value="Cancelar"  action="#{usuarioManagedBean.CancelarCadastroUsuario()}" type="submit" style="margin-right:5px;"/>
+		    		<h:commandButton value="Limpar"  action="#" type="reset" style="margin-right:5px;"/>
 		    		<h:commandButton value="Cadastrar" action="#{usuarioManagedBean.CadastrarUsuario()}" type="submit"/>
 				</h:form>
 			</p:panel>
