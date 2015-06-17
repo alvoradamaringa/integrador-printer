@@ -1,0 +1,23 @@
+
+class nivelusuarioservice
+Ações  
+Helton Heleno   02:07   Manter esta mensagem na parte superior de sua caixa de entrada  
+Para: Zezinho
+
+
+
+import Usuario;
+import NivelUsuario;
+import java.util.List;
+
+	public class NivelUsuarioService{
+
+		public void alterarNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario);
+
+		public void deletarNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario);
+
+		public void inserirNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario);
+
+		public List<NivelUsuario> consultarNivelUsuario(Usuario usuario,NivelUsuario nivelUsuario);
+
+}
