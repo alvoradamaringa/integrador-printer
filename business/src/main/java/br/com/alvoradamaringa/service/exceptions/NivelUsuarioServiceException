@@ -1,0 +1,5 @@
+package br.com.alvoradamaringa.service.exception;
+
+public class NivelUsuarioServiceException extends Exception{
+
+} 
