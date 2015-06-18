@@ -5,7 +5,7 @@ import javax.persistence.Query;
 
 import br.com.alvoradamaringa.domain.Usuario;
 
-@Stateless
+@Stateless(name = "usuarioDAO")
 public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements
 		UsuarioDAO {
 
