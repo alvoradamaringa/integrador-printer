@@ -24,9 +24,11 @@ public class LoginManagedBean implements Serializable {
 	public void efetuarLogin() {
 		try {
 			loginService.efetuarLogin(login.getUsuario(), login.getSenha());
-			FacesUtils.redirect("/secure/index.xhtml");
+			FacesUtils.redirect("/home.xhtml");
 		} catch (LoginInvalidoException ex) {
-			FacesUtils.redirect("index.xhtml");
+			FacesUtils.redirect("/index.xhtml");
+		} catch (Exception ex) {
+			FacesUtils.redirect("/index.xhtml");
 		}
 	}
 
