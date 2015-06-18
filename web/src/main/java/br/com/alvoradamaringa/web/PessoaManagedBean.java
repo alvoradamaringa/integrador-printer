@@ -20,10 +20,10 @@ public class PessoaManagedBean implements Serializable {
 		this.pessoa = pessoa;
 	}
 	
-	public void CadastrarPessoa(){
+	public void cadastrarPessoa(){
 		System.out.println("Cadastro pessoa ok");
 	}
-	public void Cancelar(){
+	public void cancelar(){
 		System.out.println("Cancelar");
 	}
 }
