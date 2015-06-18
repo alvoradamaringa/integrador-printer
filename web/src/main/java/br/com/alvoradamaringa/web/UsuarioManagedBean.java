@@ -22,11 +22,11 @@ public class UsuarioManagedBean implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public void CadastrarUsuario(){
+	public void cadastrarUsuario(){
 		System.out.println("Cadastrando Usuario");
 	}
 	
-	public void CancelarCadastroUsuario(){
+	public void cancelarCadastroUsuario(){
 		System.out.println("Cadastro Usuario Cancelado");
 	}
 }
