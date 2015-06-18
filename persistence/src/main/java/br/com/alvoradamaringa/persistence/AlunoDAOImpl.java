@@ -9,4 +9,14 @@ public class AlunoDAOImpl extends GenericDAOImpl<Long, Aluno> implements AlunoDA
 	public List<Aluno> consultar(String nomeAluno, String ra) {
 		return null;
 	}
+
+	@Override
+	public Aluno consultarRa(String ra) {
+		return null;
+	}
+
+	@Override
+	public Aluno consultarNomeAluno(String nomeAluno) {
+		return null;
+	}
 }
