@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "NIVEL_USUARIO")
+@Table(name = "NIVELUSUARIO")
 public class NivelUsuario  implements Serializable {
 	
 	private static final long serialVersionUID = 23L;
