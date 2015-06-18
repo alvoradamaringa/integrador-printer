@@ -1,12 +1,9 @@
 package br.com.alvoradamaringa.service.impl;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import org.eclipse.persistence.internal.jpa.parsing.ExistsNode;
-
-import br.com.alvoradamaringa.domain.Pessoa;
 import br.com.alvoradamaringa.domain.Aluno;
+import br.com.alvoradamaringa.domain.Pessoa;
 import br.com.alvoradamaringa.domain.Professor;
 import br.com.alvoradamaringa.persistence.AlunoDAO;
 import br.com.alvoradamaringa.persistence.PessoaDAO;
@@ -21,8 +18,6 @@ import br.com.alvoradamaringa.service.spec.PessoaService;
 @Stateless
 public class PessoaServiceBean implements PessoaService {
 
-	@EJB
-	private PessoaDAO pessoaDAO;
 	private AlunoDAO alunoDAO;
 	private ProfessorDAO professorDAO;
 

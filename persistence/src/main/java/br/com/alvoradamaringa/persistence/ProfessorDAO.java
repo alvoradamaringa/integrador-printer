@@ -2,7 +2,6 @@ package br.com.alvoradamaringa.persistence;
 
 import java.util.List;
 
-import br.com.alvoradamaringa.domain.Pessoa;
 import br.com.alvoradamaringa.domain.Professor;
 
 public interface ProfessorDAO extends GenericDAO<Long, Professor> {
