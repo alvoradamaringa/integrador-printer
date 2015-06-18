@@ -1,0 +1,32 @@
+package br.com.alvoradamaringa.service.imp;
+
+import br.com.alvoradamaringa.domain.NivelUsuario;
+import br.com.alvoradamaringa.persistence.NivelUsuarioDAO;
+
+public class NivelUsuarioSeriviceBean implements NivelUsuarioService{
+  private NivelUsuarioDAO nivelUsuarioDAO;
+  
+
+		public void alterarNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario){
+		      nivelUsuarioDAO.alterar(nivelUsuario);
+	}
+
+		public void deletarNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario){
+		    nivelUsusario.consultar(nivelUsusario);
+		      if(nivelUsuario = true){
+		      System.out.println("Não se pode excluir pois esta relacionado com algum usuario");
+		}
+		    nivelUsuarioDAO.deletar(nivelUsuario);
+		    
+	}
+		public void inserirNivelUsuario(Usuario usuario, NivelUsuario nivelUsuario){
+		    nivelUsuarioDAO.salvar(nivelUsuario);
+		    
+		    if (nivelUsusario == null) {
+		    throw new NivelUsuarioServiceException();
+	}
+
+		public List<NivelUsuario> consultarNivelUsuario(Usuario usuario,NivelUsuario nivelUsuario){
+		}
+
+}
