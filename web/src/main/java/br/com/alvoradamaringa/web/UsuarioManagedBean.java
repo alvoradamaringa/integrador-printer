@@ -1,6 +1,7 @@
 package br.com.alvoradamaringa.web;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -25,8 +26,12 @@ public class UsuarioManagedBean implements Serializable {
 	public void cadastrarUsuario(){
 		System.out.println("Cadastrando Usuario");
 	}
-	
+
 	public void cancelarCadastroUsuario(){
 		System.out.println("Cadastro Usuario Cancelado");
+	}
+	
+	public List<Usuario> getUsuarios(){
+		return null;
 	}
 }
