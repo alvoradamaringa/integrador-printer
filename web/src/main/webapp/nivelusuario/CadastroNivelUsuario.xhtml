@@ -1,37 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<title>Cadastro Nivel Usuario</title>
-			
-	</h:head>
-	
-	<p:panel id="NivelUsuario" header="Nivel de Usuario" style="text-align:left">
-        <h:form >
-               	<p:panelGrid columns="2" style="margin:left;text-align:left">
-       		
-        		<h:outputLabel for="id" value="ID:" />
-        		<p:inputText id="id"/>
-        		
-        		<h:outputLabel for="descricao" value="Descrição:"/>
-        		<p:inputText id="descricao"/>
-     		
-        		</p:panelGrid>
- 				
+<h:head>
+	<title>Cadastro Nivel Usuario</title>
+
+</h:head>
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="content">
+
+		<p:panel id="NivelUsuario" header="Nivel de Usuario"
+			style="text-align:left">
+			<h:form>
+				<p:panelGrid columns="2" style="margin:left;text-align:left">
+
+					<h:outputLabel for="id" value="Código:" />
+					<p:inputText id="id" readonly="true" />
+
+					<h:outputLabel for="descricao" value="Descrição:" />
+					<p:inputText id="descricao" required="true" />
+
+				</p:panelGrid>
+
 				<br></br>
- 				
-         		<p:button id="cancelar" value="Cancelar">
-    			</p:button>				
-        	
-        		<p:button type="submit" value="Ok">
-    			</p:button>
-    			
+				
+				<p:commandButton id="salvar" type="submit" value="Salvar">
+				</p:commandButton>
 
+				<p:commandButton id="limpar" type="reset" value="Limpar">
+				</p:commandButton>
+				
+				<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true">
+				</p:commandButton>
 
-        </h:form>
-    </p:panel>
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
 </html>

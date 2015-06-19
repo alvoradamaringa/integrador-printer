@@ -69,3 +69,15 @@ div {
 	color: white;
 	font-weight: bold;
 }
+
+div#menu {
+	width: 170px;
+}
+
+div#header label {
+	line-height: 80px;
+}
+
+.ui-button {
+	width: 85px;
+}

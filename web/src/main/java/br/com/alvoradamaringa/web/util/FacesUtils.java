@@ -61,7 +61,8 @@ public class FacesUtils {
 	public static void redirect(String url) {
 		try {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.getExternalContext().redirect(url);
+			String context = facesContext.getExternalContext().getRequestContextPath();
+			facesContext.getExternalContext().redirect(context + url);
 		} catch (IOException e) {
 			throw new IllegalArgumentException("URL invalid: " + url);
 		}
