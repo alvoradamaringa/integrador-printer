@@ -1,6 +1,7 @@
 package br.com.alvoradamaringa.web;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -10,6 +11,8 @@ import br.com.alvoradamaringa.domain.Pessoa;
 @ManagedBean
 public class PessoaManagedBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Pessoa pessoa;
 	
 	public Pessoa getPessoa() {
@@ -23,4 +26,8 @@ public class PessoaManagedBean implements Serializable {
 	public void CadastrarPessoa(){
 		System.out.println("Cadastro pessoa ok");
 	}
-}
+	
+	public List<Pessoa> getPessoas() {
+		return null;
+	}
+} 

@@ -24,3 +24,48 @@ html {
 div {
 	border: none;
 }
+
+.ui-layout-north {
+	height: 75px;
+	font-weight: bold;
+	font-size: 25px !important;
+	text-align: center;
+	border-bottom: 1px solid #1515ab !important;
+}
+
+.ui-layout-north img {
+	float: left;
+}
+
+.ui-layout-north label {
+	vertical-align: middle;
+}
+
+.ui-layout-west {
+	width: 170px;
+}
+
+.ui-layout-south {
+	height: 40px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid #1515ab !important;
+}
+
+.ui-widget-content {
+	border: none;
+}
+
+.ui-menu,
+.ui-panel-titlebar,
+.ui-panel,
+.ui-datatable {
+	border: 1px solid #1515ab !important;
+}
+
+.ui-paginator,
+.ui-panel-titlebar {
+	background-color: #1515ab;
+	color: white;
+	font-weight: bold;
+}

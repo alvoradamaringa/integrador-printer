@@ -1,6 +1,7 @@
 package br.com.alvoradamaringa.web;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -24,5 +25,9 @@ public class CursoManagedBean implements Serializable {
 
 	public void cadastrarCurso(){
 		System.out.println("Cadastrando Curso");
+	}
+	
+	public List<Curso> getCursos(){
+		return null;
 	}
 }
