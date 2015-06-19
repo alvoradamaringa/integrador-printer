@@ -40,7 +40,7 @@
 
 ##### Linux
 
-`standalone.sh --server-config=standalone-integrador-printer.xml`
+`./standalone.sh --server-config=standalone-integrador-printer.xml`
 
 #### Help
 
