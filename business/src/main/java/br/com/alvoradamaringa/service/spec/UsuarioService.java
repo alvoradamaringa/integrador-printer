@@ -1,13 +1,20 @@
 package br.com.alvoradamaringa.service.spec;
 
-import br.com.alvoradamaringa.domain.Usuario;
+import java.util.List;
 
+import javax.ejb.Local;
+
+import br.com.alvoradamaringa.domain.NivelUsuario;
+import br.com.alvoradamaringa.domain.Usuario;
+import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
+
+@Local
 public interface UsuarioService {
 
-	public void consultarUsuario(String nome, String NivelUsuario);
+	public List<Usuario> consultarUsuario(String nome, NivelUsuario nivelUsuario);
 
-	public void editarUsuario(Usuario usuario);
+	public void salvarUsuario(Usuario usuario);
 
-	public void excluirUsuario(Usuario usuario);
+	public void excluirUsuario(Usuario usuario) throws IntegridadeException;
 
 }
