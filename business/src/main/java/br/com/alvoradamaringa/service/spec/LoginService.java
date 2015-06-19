@@ -1,8 +1,11 @@
 package br.com.alvoradamaringa.service.spec;
 
+import javax.ejb.Local;
+
 import br.com.alvoradamaringa.domain.Usuario;
 import br.com.alvoradamaringa.service.exceptions.LoginInvalidoException;
 
+@Local
 public interface LoginService {
 
 	/**
