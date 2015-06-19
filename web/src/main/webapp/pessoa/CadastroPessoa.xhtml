@@ -12,6 +12,9 @@
 		</style>
 	</h:head>
 	
+	<ui:composition template="/template/template.xhtml">
+	
+	<ui:define name="content">
 	<p:panel id="CadPessoa" header="Cadastro de Pessoa">
         <h:form style="text-align:left">
                	<p:panelGrid columns="4">
@@ -44,12 +47,12 @@
         		<p:inputText id="codUsuario"/>
         		
         		  			
-        	</p:panelGrid>
+        		</p:panelGrid>
         	
-        		<h:commandButton value="Cancelar"  action="#" type="reset"/>
-	    		<h:commandButton value="Cadastrar" action="#{pessoaManagedBean.CadastrarPessoa()}" type="submit"/>
-       
-        	
-        </h:form>
-    </p:panel>
+        			<h:commandButton value="Cancelar"  action="#{pessoaManagedBean.cancelar()}" type="reset"/>
+	    			<h:commandButton value="Cadastrar" action="#{pessoaManagedBean.cadastrarPessoa()}" type="submit"/>
+        		</h:form>
+    		</p:panel>
+    	</ui:define>
+	</ui:composition>
 </html>
