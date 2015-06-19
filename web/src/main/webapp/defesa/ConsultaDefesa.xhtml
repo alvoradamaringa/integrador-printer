@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Projeto Integrador - Printer</title>
+</h:head>
+<h:body>
+
+	<ui:composition template="/template/template.xhtml">
+
+		<ui:define name="content">
+
+			<p:panel id="ConsultaDesfesa" header="Consulta Defesa"
+				style="text-align:left">
+				<p:dataTable var="defesa" value="#{defesaManagedBean.defesas}"
+					rows="10" paginator="true"
+					emptyMessage="Registros não encontrados."
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					
+					<p:column headerText="Id"  width="30">
+						<h:outputText value="#{defesa.idDefesaAluno}" />
+					</p:column>
+
+					<p:column headerText="Aluno">
+						<h:outputText value="#{defesa.aluno.pessoa.nome}" />
+					</p:column>
+
+					<p:column headerText="Tema">
+						<h:outputText value="#{defesa.tema}" />
+					</p:column>
+
+					<p:column headerText="Nota">
+						<h:outputText value="#{defesa.nota}" />
+					</p:column>
+					
+					<p:column headerText="Status">
+						<h:outputText value="#{defesa.status}" />
+					</p:column>
+					
+				</p:dataTable>
+				
+				<p:panelGrid columns="2">
+					<p:button id="cancelar" value="Cancelar" />
+					<p:button type="submit" value="Consultar" />
+				</p:panelGrid>
+				
+			</p:panel>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

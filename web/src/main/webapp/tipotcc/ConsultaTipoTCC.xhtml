@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Projeto Integrador - Printer</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="content">
+
+			<p:panel id="Consultatipotcc" header="Consulta Tipo de TCC">
+				<p:panelGrid>
+					<p:inputText id="Consulta" />
+				</p:panelGrid>
+
+				<br></br>
+
+				<p:dataTable var="tipotcc"
+					value="#{tipoTccManagedBean.pesquisaTipoTccs}" rows="10"
+					paginator="true"
+					emptyMessage="Registros não encontrados."
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+
+					<p:column headerText="Id"  width="30">
+						<h:outputText value="#{tipotcc.idPesquisaTipoTcc}" />
+					</p:column>
+
+					<p:column headerText="Descrição">
+						<h:outputText value="#{tipotcc.descricao}" />
+					</p:column>
+
+				</p:dataTable>
+
+				<p:panelGrid columns="2">
+					<p:button id="cancelar" value="Cancelar" />
+					<p:button type="submit" value="Consultar" />
+				</p:panelGrid>
+
+			</p:panel>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
