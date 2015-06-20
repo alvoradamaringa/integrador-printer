@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Projeto Integrador - Printer</title>
+</h:head>
+<h:body>
+	<h:form id="formLogin">
+		<p:panel header="Login" style="width: 400px; margin: auto">
+			<p:outputLabel value="* Campos obrigatórios" style="font-size: 10px" />
+			<h:panelGrid columns="2">
+				<p:outputLabel for="usuario" value="Usuário:" />
+				<p:inputText id="usuario" value="#{loginManagedBean.login.usuario}" required="true" />
+
+				<p:outputLabel for="senha" value="Senha:" />
+				<p:password id="senha" value="#{loginManagedBean.login.senha}" required="true"
+					requiredMessage="Campo obrigatório" />
+
+				<p:commandButton type="submit" action="#{loginManagedBean.efetuarLogin}" value="Entrar"
+					ajax="false" />
+				<p:commandButton type="reset" value="Limpar" />
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

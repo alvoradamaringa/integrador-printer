@@ -37,10 +37,27 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.6</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -85,6 +102,17 @@
 			<id>EclipseLink Repo</id>
 			<name>EclipseLink Repository</name>
 			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>jvnet-nexus-snapshots</id>
+			<name>jvnet-nexus-snapshots</name>
+			<url>https://maven.java.net/content/repositories/snapshots/</url>
 		</repository>
 	</repositories>
 
@@ -171,6 +199,7 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.35</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
@@ -182,6 +211,30 @@
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
 				<version>2.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.primefaces</groupId>
+				<artifactId>primefaces</artifactId>
+				<version>5.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.primefaces.themes</groupId>
+				<artifactId>bootstrap</artifactId>
+				<version>1.0.10</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ejb</groupId>
+				<artifactId>javax.ejb-api</artifactId>
+				<version>3.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -1,11 +1,44 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>br.com.alvoradamaringa</groupId>
-    <artifactId>integrador-printer</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <artifactId>integrador-printer-web</artifactId>
-  <packaging>war</packaging>
-  <name>Projeto Integrador - Printer :: Web</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.com.alvoradamaringa</groupId>
+		<artifactId>integrador-printer</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>integrador-printer-web</artifactId>
+	<packaging>war</packaging>
+	<name>Projeto Integrador - Printer :: Web</name>
+	
+	<build>
+		<finalName>integrador-printer</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.alvoradamaringa</groupId>
+			<artifactId>integrador-printer-domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.com.alvoradamaringa</groupId>
+			<artifactId>integrador-printer-business</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bootstrap</artifactId>
+		</dependency>
+	</dependencies>
 </project>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Projeto Integrador - Printer</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="content">
+
+			<p:panel header="Consulta Níveis de Usuário">
+				<p:panelGrid columns="4">
+					<h:outputLabel value="Descrição: " />
+				
+					<p:inputText id="Consulta" />
+					
+					<p:commandButton type="submit" value="Consultar" />
+					
+					<p:commandButton id="novo" value="Novo" action="CadastroNivelUsuario.xhtml" />
+				</p:panelGrid>
+
+				<br></br>
+
+				<p:dataTable var="nvlusu"
+					value="#{nivelUsuarioManagedBean.niveisUsuario}" rows="10"
+					paginator="true"
+					emptyMessage="Registros não encontrados."
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+
+					<p:column headerText="Código" width="100">
+						<h:outputText value="#{nvlusu.idNivelUsuario}" />
+					</p:column>
+
+					<p:column headerText="Descrição">
+						<h:outputText value="#{nvlusu.descricao}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</p:panel>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

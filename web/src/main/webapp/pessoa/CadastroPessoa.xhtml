@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Cadastro de Pessoa - Integrador</title>
+		<style>
+		.label{margin-left:5px}
+		</style>
+	</h:head>
+	
+	<ui:composition template="/template/template.xhtml">
+	
+	<ui:define name="content">
+	<p:panel id="CadPessoa" header="Cadastro de Pessoa">
+        <h:form style="text-align:left">
+               	<p:panelGrid columns="4">
+        		<h:outputLabel class="label" for="identificador">ID:</h:outputLabel>
+        		<p:inputText id="identificador" value="#{PessoaManagedBean.pessoa.idPessoa}" readonly="true" />
+        		<h:outputLabel for="nome" value="NOME:" />
+        		<p:inputText id="nome" value="#{pessoaManagedBean.pessoa.nome}"/>
+        	    <h:outputLabel for="cpf" value="CPF:" />
+        		<p:inputText id="cpf" value="#{pessoaManagedBean.pessoa.cpf}" required="true"/>
+        		<h:outputLabel for="endereco" value="ENDEREÇO:" />
+        		<p:inputText id="endereco" value="#{pessoaManagedBean.pessoa.endereco}" required="true"/>
+        		<p:outputLabel for="sexo" value="SEXO:" />
+        		<p:selectOneMenu id="sexo" value="#{pessoaManagedBean.pessoa.sexo}">
+        			<f:selectItem itemLabel="Selecionar" itemValue="" />
+            		<f:selectItem itemLabel="Masculino" itemValue="M" />
+            		<f:selectItem itemLabel="Feminino" itemValue="F" />
+            	</p:selectOneMenu>
+            	<p:outputLabel for="telefone" value="TELEFONE:" />
+        		<p:inputMask id="telefone" mask="(999) 9999-9999" value="#{pessoaManagedBean.pessoa.telefone}" required="true"/>
+        		<h:outputLabel for="email" value="EMAIL:" />
+        		<p:inputText id="email" value="#{pessoaManagedBean.pessoa.email}" required="true"/>
+        	    <p:outputLabel for="dataNascimento" value="DATA NASC:" />
+        		<p:calendar id="dataNascimento"  showOn="button" value="#{pessoaManagedBean.pessoa.dataNascimento}" required="true"/>
+        	    <p:outputLabel for="tipoUsuario" value="TIPO:" />
+        		<p:selectOneRadio id="tipoUsuario" >
+            		<f:selectItem itemLabel="Aluno" itemValue="1" />
+            		<f:selectItem itemLabel="Professor" itemValue="2" />
+                </p:selectOneRadio>
+                <h:outputLabel for="codUsuario" value="RA / MATRICULA:" />
+        		<p:inputText id="codUsuario"/>
+        		
+        		  			
+        		</p:panelGrid>
+        	
+        			<h:commandButton value="Cancelar"  action="#{pessoaManagedBean.cancelar()}" type="reset"/>
+	    			<h:commandButton value="Cadastrar" action="#{pessoaManagedBean.cadastrarPessoa()}" type="submit"/>
+        		</h:form>
+    		</p:panel>
+    	</ui:define>
+	</ui:composition>
+</html>

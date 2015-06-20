@@ -1,11 +1,12 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
+
+import br.com.alvoradamaringa.domain.BancaProfessor;
+import br.com.alvoradamaringa.domain.TipoProfessor;
 
 public interface BancaProfessorDAO extends GenericDAO<Long, BancaProfessor>{
   
-   public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor){
-       return null;
-   }
+   public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor, TipoProfessor tipoProfessor);
 
 }

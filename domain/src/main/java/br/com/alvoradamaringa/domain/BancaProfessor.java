@@ -1,17 +1,42 @@
 package br.com.alvoradamaringa.domain;
 
-public class BancaProfessor {
+import java.io.Serializable;
 
-	private Long idBancaProfessor;
-	private DefesaAluno defesaAluno;
-	private Professor professor;
-	private TipoProfessor tipoProfessor;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "BANCAPROFESSOR")
+public class BancaProfessor  implements Serializable {
 	
-	public void adicionarProfessor(Professor professor, TipoProfessor tipoProfessor) {
+	private static final long serialVersionUID = 23L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_BANCA_PROFESSOR")
+	private Long idBancaProfessor;
+	@ManyToOne
+	@JoinColumn(name = "ID_DEFESA_ALUNO")
+	private DefesaAluno defesaAluno;
+	@ManyToOne
+	@JoinColumn(name = "ID_PROFESSOR")
+	private Professor professor;
+	@Enumerated(EnumType.ORDINAL)
+	private TipoProfessor tipoProfessor;
+
+	public void adicionarProfessor(Professor professor,
+			TipoProfessor tipoProfessor) {
 		this.professor = professor;
 		this.tipoProfessor = tipoProfessor;
 	}
-	
+
 	public void adicionarDefesaAluno(DefesaAluno defesaAluno) {
 		this.defesaAluno = defesaAluno;
 	}
@@ -21,6 +46,7 @@ public class BancaProfessor {
 	}
 
 	public Professor getProfessor() {
+
 		return professor;
 	}
 

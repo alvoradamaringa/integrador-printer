@@ -1,11 +1,14 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
 
-public class ProfessorCursoDAOImpl extends GenericDAOImpl<Long, ProfessorCurso> implements ProfessorCursoDAO {
-  
-   public void consultar(Long idProfessor){
-     
-   }
+import br.com.alvoradamaringa.domain.ProfessorCurso;
+
+public class ProfessorCursoDAOImpl extends GenericDAOImpl<Long, ProfessorCurso>
+		implements ProfessorCursoDAO {
+
+	public List<ProfessorCurso> consultar(String nomeProfessor, String nomeCurso) {
+		return null;
+	}
 
 }

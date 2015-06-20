@@ -1,11 +1,13 @@
 package br.com.alvoradamaringa.persistence;
 
-import br.com.alvoradamaringa.domain;
+import java.util.List;
+
+import br.com.alvoradamaringa.domain.BancaProfessor;
+import br.com.alvoradamaringa.domain.TipoProfessor;
 
 public class BancaProfessorDAOImpl extends GenericDAOImpl<Long, BancaProfessor> implements BancaProfessorDAO {
   
-    @Override
-+   public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor) {
-      return null;
-    }
+	public List<BancaProfessor> consultar(String nomeAluno, String nomeProfessor, TipoProfessor tipoProfessor) {
+		return null;
+	}
 }
