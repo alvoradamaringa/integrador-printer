@@ -20,8 +20,6 @@ CREATE TABLE defesaaluno (
 id_defesa_aluno BIGINT,
 id_aluno BIGINT,
 id_pesquisa_tipo_tcc BIGINT,
-id_banca_professor BIGINT,
-id_defesa_comentario BIGINT,
 nota DECIMAL(3,1),
 data DATETIME,
 status CHAR(1),
@@ -91,8 +89,6 @@ ALTER TABLE bancaprofessor MODIFY COLUMN tipo_professor ENUM('o','c','e') NOT NU
 ALTER TABLE defesaaluno MODIFY COLUMN id_defesa_aluno INT NOT NULL;
 ALTER TABLE defesaaluno MODIFY COLUMN id_aluno BIGINT NOT NULL;
 ALTER TABLE defesaaluno MODIFY COLUMN id_pesquisa_tipo_tcc BIGINT NOT NULL;
-ALTER TABLE defesaaluno MODIFY COLUMN id_banca_professor BIGINT NOT NULL;
-ALTER TABLE defesaaluno MODIFY COLUMN id_defesa_comentario BIGINT NOT NULL;
 ALTER TABLE defesaaluno MODIFY COLUMN nota DECIMAL(3,1) NOT NULL;
 ALTER TABLE defesaaluno MODIFY COLUMN data DATETIME NOT NULL;
 ALTER TABLE defesaaluno MODIFY COLUMN tema VARCHAR(200) NOT NULL;
@@ -108,9 +104,9 @@ ALTER TABLE pesquisatipotcc MODIFY COLUMN id_pesquisa_tipo_tcc BIGINT NOT NULL;
 ALTER TABLE pesquisatipotcc MODIFY COLUMN descricao VARCHAR (45)NOT NULL;
 ALTER TABLE pessoa MODIFY COLUMN id_pessoa BIGINT NOT NULL;
 ALTER TABLE pessoa MODIFY COLUMN nome VARCHAR (200) NOT NULL;
-ALTER TABLE pessoa MODIFY COLUMN cpf CHAR NOT NULL;
+ALTER TABLE pessoa MODIFY COLUMN cpf CHAR(11) NOT NULL;
 ALTER TABLE pessoa MODIFY COLUMN sexo ENUM('m','f') NOT NULL;
-ALTER TABLE pessoa MODIFY COLUMN telefone CHAR NOT NULL;
+ALTER TABLE pessoa MODIFY COLUMN telefone CHAR(15) NOT NULL;
 ALTER TABLE pessoa MODIFY COLUMN email VARCHAR (45) NOT NULL;
 ALTER TABLE pessoa MODIFY COLUMN data_nascimento DATE NOT NULL;
 ALTER TABLE aluno MODIFY COLUMN id_aluno BIGINT NOT NULL;
