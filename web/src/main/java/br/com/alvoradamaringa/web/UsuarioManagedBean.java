@@ -46,10 +46,6 @@ public class UsuarioManagedBean implements Serializable {
 			FacesUtils.redirect("CadastrarUsuario.xhtml");
 		}
 	}
-
-	public void cancelarCadastroUsuario(){
-		FacesUtils.redirect("ConsultarUsuario.xhtml");
-	}
 	
 	public List<Usuario> getUsuarios(){
 		return null;
