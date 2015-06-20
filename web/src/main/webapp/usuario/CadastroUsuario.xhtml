@@ -16,7 +16,7 @@
 					<h:outputLabel value="* Campos Obrigátorios" />
 					<p:panelGrid columns="2">
 		        		<h:outputLabel for="identificador">ID: </h:outputLabel>
-		        		<p:inputText id="identificador" value="#{usuarioManagedBean.usuario.idUsuario}" readonly="true"/>
+		        		<p:inputText id="identificador" value="#{usuarioManagedBean.usuario.idUsuario}" readonly="true" disabled="true"/>
 		        		<h:outputLabel for="usuario">Login:</h:outputLabel>
 		        		<p:inputText id="usuario" value="#{usuarioManagedBean.usuario.login}" required="true"/>
 		        		<h:outputLabel for="senha">Senha:</h:outputLabel>
@@ -27,9 +27,9 @@
 							<f:selectItem itemValue="2" itemLabel="Administrador" />
 						</h:selectOneMenu>
 					</p:panelGrid>
-		    		<h:commandButton value="Cancelar"  action="#{usuarioManagedBean.cancelarCadastroUsuario()}" type="submit" style="margin-right:5px;"/>
-		    		<h:commandButton value="Limpar"  action="#" type="reset" style="margin-right:5px;"/>
-		    		<h:commandButton value="Cadastrar" action="#{usuarioManagedBean.cadastrarUsuario()}" type="submit"/>
+		    		<p:commandButton value="Cancelar"  action="#{usuarioManagedBean.cancelarCadastroUsuario()}" type="submit" style="margin-right:5px;"/>
+		    		<p:commandButton value="Limpar"  action="#" type="reset" style="margin-right:5px;"/>
+		    		<p:commandButton value="Cadastrar" action="#{usuarioManagedBean.cadastrarUsuario()}" type="submit"/>
 				</h:form>
 			</p:panel>
 		</ui:define>
