@@ -20,5 +20,9 @@
 			<artifactId>integrador-printer-persistence</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>javax.ejb-api</artifactId>
+		</dependency>
 	</dependencies>
 </project>

@@ -1,11 +1,25 @@
 package br.com.alvoradamaringa.persistence;
 
+import javax.ejb.Stateless;
+import javax.persistence.Query;
+
 import br.com.alvoradamaringa.domain.Usuario;
 
-public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements UsuarioDAO {
-  
-	public Usuario consultar(String login, String nome) {
-		return null;
+@Stateless(name = "usuarioDAO")
+public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements
+		UsuarioDAO {
+
+	private static final String CONSULTA_LOGIN = "SELECT u FROM Usuario u WHERE u.login = :usuario AND u.senha = :senha";
+
+	public Usuario consultar(String usuario, String senha) {
+		Query query = entityManager.createQuery(CONSULTA_LOGIN);
+		query.setParameter("usuario", usuario);
+		query.setParameter("senha", senha);
+		try {
+			return (Usuario) query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
-	
+
 }

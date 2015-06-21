@@ -8,4 +8,10 @@ public interface AlunoDAO extends GenericDAO<Long, Aluno> {
 
 	public List<Aluno> consultar(String nomeAluno, String ra);
 	
+	public Aluno consultarNomeAluno(String nomeAluno);
+	
+	public Aluno consultarRa(String ra);
+	
+	
+	
 }

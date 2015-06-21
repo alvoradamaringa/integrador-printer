@@ -3,21 +3,26 @@ package br.com.alvoradamaringa.service.spec;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.Local;
+
+import br.com.alvoradamaringa.domain.BancaProfessor;
 import br.com.alvoradamaringa.domain.DefesaAluno;
 import br.com.alvoradamaringa.domain.DefesaComentario;
+import br.com.alvoradamaringa.service.exceptions.AlunoNaoInformadoException;
+import br.com.alvoradamaringa.service.exceptions.BancaException;
+import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
 
+@Local
 public interface DefesaService {
 
-    public void cadastraDefesa(DefesaAluno DefesaAluno);
+	List<DefesaAluno> consultarDefesa(Date data, String tema, String nomeAluno);
 
-    public List<DefesaAluno> consultaDefesa(Date data, String tema, String nomeAluno);
+	void salvarDefesa(List<BancaProfessor> bancaProfessores, DefesaAluno DefesaAluno) throws AlunoNaoInformadoException, BancaException;
 
-    public void excluirDefesa(DefesaAluno DefesaAluno);
+    void excluirDefesa(DefesaAluno DefesaAluno) throws IntegridadeException;
 
-    public void cadastrarDefesa(DefesaComentario DefesaComentario);
-
-    public List<DefesaComentario> consultarDefesa(String comentario);
-
-    public void excluirDefesa(DefesaComentario DefesaComentario);
+    void adicionarComentario(DefesaComentario DefesaComentario);
+    
+    void excluirComentario(DefesaComentario DefesaComentario);
 
 }
