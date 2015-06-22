@@ -13,8 +13,11 @@
 		<ui:define name="content">
 			<p:panel id="ConsultaUsuario" header="Consulta de Usuário">
 
-				<p:panelGrid>
+				<p:panelGrid columns="4">
+					<h:outputLabel value="Descrição: " />
 					<p:inputText id="Consulta" />
+					<p:commandButton id="consultar" type="submit" value="Consultar" />
+					<p:commandButton id="novo" value="Novo" action="CadastroUsuario.xhtml" />
 				</p:panelGrid>
 				<br></br>
 
@@ -24,7 +27,7 @@
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15">
 					
-					<p:column headerText="Id"  width="30">
+					<p:column headerText="Código"  width="50">
 						<h:outputText value="#{usuario.idUsuario}" />
 					</p:column>
 
@@ -35,13 +38,7 @@
 					<p:column headerText="Curso">
 						<h:outputText value="#{usuario.nivelUsuario.descricao}" />
 					</p:column>
-					
 				</p:dataTable>
-
-				<p:panelGrid columns="2">
-					<p:button id="cancelar" value="Cancelar" />
-					<p:button type="submit" value="Consultar" />
-				</p:panelGrid>
 				
 			</p:panel>
 		</ui:define>

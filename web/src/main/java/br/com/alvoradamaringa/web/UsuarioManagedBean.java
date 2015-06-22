@@ -28,6 +28,10 @@ public class UsuarioManagedBean implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public void consultarUsuario() {
+		
+	}
 
 	public void cadastrarUsuario(){
 
@@ -41,10 +45,6 @@ public class UsuarioManagedBean implements Serializable {
 		catch(Exception ex){
 			FacesUtils.redirect("CadastrarUsuario.xhtml");
 		}
-	}
-
-	public void cancelarCadastroUsuario(){
-		FacesUtils.redirect("ConsultarUsuario.xhtml");
 	}
 	
 	public List<Usuario> getUsuarios(){

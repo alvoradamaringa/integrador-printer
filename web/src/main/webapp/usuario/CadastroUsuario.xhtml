@@ -27,9 +27,11 @@
 							<f:selectItem itemValue="2" itemLabel="Administrador" />
 						</h:selectOneMenu>
 					</p:panelGrid>
-		    		<p:commandButton value="Cancelar"  action="#{usuarioManagedBean.cancelarCadastroUsuario()}" type="submit" style="margin-right:5px;"/>
-		    		<p:commandButton value="Limpar"  action="#" type="reset" style="margin-right:5px;"/>
-		    		<p:commandButton value="Cadastrar" action="#{usuarioManagedBean.cadastrarUsuario()}" type="submit"/>
+					<p:panelGrid columns="3">
+						<p:commandButton value="Cadastrar" action="#{usuarioManagedBean.cadastrarUsuario()}" type="submit"/>
+						<p:commandButton value="Limpar"  action="#" type="reset"/>
+						<p:commandButton id="cancelar" value="Cancelar" action="ConsultarUsuario.xhtml" immediate="true"/>
+					</p:panelGrid>
 				</h:form>
 			</p:panel>
 		</ui:define>
