@@ -11,6 +11,7 @@ import br.com.alvoradamaringa.domain.Usuario;
 public interface UsuarioDAO extends GenericDAO<Long, Usuario> {
 
 	Usuario consultar(String usuario, String senha);
+	
 	List<Usuario> consultarUsuario(String nome, NivelUsuario nivelUsuario);
 	
 }
