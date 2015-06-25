@@ -19,11 +19,11 @@ public class NivelUsuarioManagedBean implements Serializable {
 	private NivelUsuario nivelUsuario = new NivelUsuario();
 	
 	@EJB
-	private NivelUsuarioService nivelservice;
+	private NivelUsuarioService nivelUsuarioService;
 
 	public void cadastrarNivel() {
 		try {
-			nivelservice.salvarNivelUsuario(nivelUsuario);
+			nivelUsuarioService.salvarNivelUsuario(nivelUsuario);
 			FacesUtils.redirect("/nivelusuario/CadastroNivelUsuario.xhtml");
 		} catch (Exception ex){
 			FacesUtils.redirect("/nivelusuario/CadastroNivelUsuario.xhtml");

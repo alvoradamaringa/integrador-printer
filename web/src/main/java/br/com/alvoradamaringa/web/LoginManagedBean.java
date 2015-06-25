@@ -26,9 +26,9 @@ public class LoginManagedBean implements Serializable {
 			loginService.efetuarLogin(login.getUsuario(), login.getSenha());
 			FacesUtils.redirect("/home.xhtml");
 		} catch (LoginInvalidoException ex) {
-			FacesUtils.redirect("/index.xhtml");
+			FacesUtils.adicionarMensagemErro("growl", "Usuário e/ou senha errado(s).");
 		} catch (Exception ex) {
-			FacesUtils.redirect("/index.xhtml");
+			FacesUtils.adicionarMensagemErro("growl", "Erro ao efetuar login. Por favor entre em contato com o administrador.");
 		}
 	}
 

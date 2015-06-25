@@ -28,15 +28,10 @@
 
 				<br></br>
 				
-				<p:commandButton id="salvar" action="#{NivelUsuarioManagedBean.salvarNivelUsuario()}" type="submit" value="Salvar">
-				</p:commandButton>
-
-				<p:commandButton id="limpar" type="reset" value="Limpar">
-				</p:commandButton>
+				<p:commandButton id="salvar" action="#{nivelUsuarioManagedBean.salvarNivelUsuario}" type="submit" value="Salvar" />
+				<p:commandButton id="limpar" type="reset" value="Limpar" />
+				<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
 				
-				<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true">
-				</p:commandButton>
-
 			</h:form>
 		</p:panel>
 

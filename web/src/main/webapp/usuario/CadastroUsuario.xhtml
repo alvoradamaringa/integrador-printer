@@ -28,9 +28,9 @@
 						</h:selectOneMenu>
 					</p:panelGrid>
 					<p:panelGrid columns="3">
-						<p:commandButton value="Cadastrar" action="#{usuarioManagedBean.cadastrarUsuario()}" type="submit"/>
-						<p:commandButton value="Limpar"  action="#" type="reset"/>
-						<p:commandButton id="cancelar" value="Cancelar" action="ConsultarUsuario.xhtml" immediate="true"/>
+						<p:commandButton id="salvar" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
+						<p:commandButton id="limpar" type="reset" value="Limpar" />
+						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
 					</p:panelGrid>
 				</h:form>
 			</p:panel>
