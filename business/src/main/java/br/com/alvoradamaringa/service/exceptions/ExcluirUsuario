@@ -1,0 +1,4 @@
+package br.com.alvoradamaringa.service.exceptions;
+
+public class ExcluirUsuarioException extends Exception {
+}
