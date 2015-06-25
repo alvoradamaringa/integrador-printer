@@ -16,6 +16,18 @@
 
 			<p:panel id="ConsultaDesfesa" header="Consulta Defesa"
 				style="text-align:left">
+				
+				<p:panelGrid columns="6">
+					<h:outputLabel value="Nome: " />
+					<p:inputText id="nome" />
+					<h:outputLabel value="Data: " />
+					<p:calendar pattern="dd/MM/yyyy" />
+					<p:commandButton type="submit" value="Consultar" />
+					<p:commandButton id="novo" value="Novo" action="CadastroDefesa.xhtml" />					
+				</p:panelGrid>
+
+				<br></br>
+				
 				<p:dataTable var="defesa" value="#{defesaManagedBean.defesas}"
 					rows="10" paginator="true"
 					emptyMessage="Registros não encontrados."
@@ -43,11 +55,6 @@
 					</p:column>
 					
 				</p:dataTable>
-				
-				<p:panelGrid columns="2">
-					<p:button id="cancelar" value="Cancelar" />
-					<p:button type="submit" value="Consultar" />
-				</p:panelGrid>
 				
 			</p:panel>
 		</ui:define>
