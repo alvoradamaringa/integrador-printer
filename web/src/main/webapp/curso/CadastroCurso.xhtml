@@ -32,8 +32,11 @@
 
 					<br />
 
-					<p:button type="submit" value="Confirmar" style="margin-right:50px" />
-					<p:button id="cancelar" value="Cancelar" />
+					<p:panelGrid columns="3">
+						<p:commandButton id="salvar" action="#{cursoManagedBean.cadastrarCurso}" type="submit" value="Salvar" />
+						<p:commandButton id="limpar" type="reset" value="Limpar" />
+						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
+					</p:panelGrid>
 
 				</h:form>
 				

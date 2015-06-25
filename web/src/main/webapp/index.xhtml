@@ -10,15 +10,17 @@
 </h:head>
 <h:body>
 	<h:form id="formLogin">
+		<p:growl id="growl" />
 		<p:panel header="Login" style="width: 400px; margin: auto">
 			<p:outputLabel value="* Campos obrigatórios" style="font-size: 10px" />
 			<h:panelGrid columns="2">
 				<p:outputLabel for="usuario" value="Usuário:" />
-				<p:inputText id="usuario" value="#{loginManagedBean.login.usuario}" required="true" />
+				<p:inputText id="usuario" value="#{loginManagedBean.login.usuario}" required="true"
+					requiredMessage="Campo usuário é obrigatório" />
 
 				<p:outputLabel for="senha" value="Senha:" />
 				<p:password id="senha" value="#{loginManagedBean.login.senha}" required="true"
-					requiredMessage="Campo obrigatório" />
+					requiredMessage="Campo senha é obrigatório" />
 
 				<p:commandButton type="submit" action="#{loginManagedBean.efetuarLogin}" value="Entrar"
 					ajax="false" />

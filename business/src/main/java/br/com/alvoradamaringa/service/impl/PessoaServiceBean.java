@@ -1,14 +1,16 @@
 package br.com.alvoradamaringa.service.impl;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import br.com.alvoradamaringa.domain.Aluno;
-import br.com.alvoradamaringa.domain.Pessoa;
 import br.com.alvoradamaringa.domain.Professor;
 import br.com.alvoradamaringa.persistence.AlunoDAO;
 import br.com.alvoradamaringa.persistence.ProfessorDAO;
 import br.com.alvoradamaringa.service.exceptions.CpfDuplicadoException;
 import br.com.alvoradamaringa.service.exceptions.CpfNaoInformadoException;
+import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
 import br.com.alvoradamaringa.service.exceptions.RaDuplicadoException;
 import br.com.alvoradamaringa.service.exceptions.RaNaoInformadoException;
 import br.com.alvoradamaringa.service.spec.PessoaService;
@@ -19,16 +21,16 @@ public class PessoaServiceBean implements PessoaService {
 	private AlunoDAO alunoDAO;
 	private ProfessorDAO professorDAO;
 
-	@SuppressWarnings("unused")
 	@Override
-	public void salvarAluno(Aluno aluno) throws RaNaoInformadoException,
-			RaDuplicadoException {
+	public void salvarAluno(Aluno aluno) throws RaNaoInformadoException, RaDuplicadoException {
+
+		if (aluno.getRa() == null) {
+			throw new RaNaoInformadoException();
+		}
 
 		Aluno raValidado = alunoDAO.consultarRa(aluno.getRa());
 
-		if (raValidado == null) {
-			throw new RaNaoInformadoException();
-		} else if (raValidado != null) {
+		if (raValidado != null) {
 			throw new RaDuplicadoException();
 		}
 
@@ -36,17 +38,17 @@ public class PessoaServiceBean implements PessoaService {
 
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public void adicionarProfessor(Professor professor)
 			throws CpfNaoInformadoException, CpfDuplicadoException {
 
-		Professor cpfValidado = professorDAO.consultarCpf(professor.getPessoa()
-				.getCpf());
-
-		if (cpfValidado == null) {
+		if (professor.getPessoa().getCpf() == null) {
 			throw new CpfNaoInformadoException();
-		} else if (cpfValidado != null) {
+		}
+
+		Professor cpfValidado = professorDAO.consultarCpf(professor.getPessoa().getCpf());
+
+		if (cpfValidado != null) {
 			throw new CpfDuplicadoException();
 		}
 
@@ -54,28 +56,37 @@ public class PessoaServiceBean implements PessoaService {
 	}
 
 	@Override
-	public void excluirAluno(Aluno aluno) {
-		alunoDAO.deletar(aluno);
+	public void excluirAluno(Aluno aluno) throws IntegridadeException {
+		try {
+			alunoDAO.deletar(aluno);
+		} catch (Exception ex) {
+			throw new IntegridadeException();
+		}
 	}
 
 	@Override
-	public void excluirProfessor(Professor professor) {
-		professorDAO.deletar(professor);
-	}
-
-	@SuppressWarnings("unused")
-	@Override
-	public void consultarAluno(String ra, String nomeAluno, String cpf) {
-		Aluno raConsultado = alunoDAO.consultarRa(((Aluno) alunoDAO).getRa());
-		Aluno nomeAlunoConsultado = alunoDAO
-				.consultarNomeAluno(((Pessoa) alunoDAO).getNome());
-
-		alunoDAO.consultarRa(nomeAluno);
+	public void excluirProfessor(Professor professor)
+			throws IntegridadeException {
+		try {
+			professorDAO.deletar(professor);
+		} catch (Exception ex) {
+			throw new IntegridadeException();
+		}
 	}
 
 	@Override
-	public void consultarProfessor(String nomeProfessor, String cpf) {
-		professorDAO.consultar(nomeProfessor, cpf);
+	public List<Aluno> consultarAluno(String ra, String nomeAluno, String cpf) {
+
+		List<Aluno> lista = alunoDAO.consultar(ra, nomeAluno, cpf);
+		return lista;
+	}
+
+	@Override
+	public List<Professor> consultarProfessor(String nomeProfessor, String cpf) {
+
+		List<Professor> lista = professorDAO.consultar(nomeProfessor, cpf);
+		return lista;
+
 	}
 
 }

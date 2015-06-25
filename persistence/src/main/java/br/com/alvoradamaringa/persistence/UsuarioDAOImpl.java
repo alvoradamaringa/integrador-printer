@@ -1,11 +1,14 @@
 package br.com.alvoradamaringa.persistence;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.Query;
 
+import br.com.alvoradamaringa.domain.NivelUsuario;
 import br.com.alvoradamaringa.domain.Usuario;
 
-@Stateless(name = "usuarioDAO")
+@Stateless
 public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements
 		UsuarioDAO {
 
@@ -20,6 +23,11 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Long, Usuario> implements
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	@Override
+	public List<Usuario> consultarUsuario(String nome, NivelUsuario nivelUsuario) {
+		return null;
 	}
 
 }
