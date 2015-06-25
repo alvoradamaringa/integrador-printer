@@ -2,11 +2,14 @@ package br.com.alvoradamaringa.persistence;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+
 import br.com.alvoradamaringa.domain.Aluno;
 
+@Stateless
 public class AlunoDAOImpl extends GenericDAOImpl<Long, Aluno> implements AlunoDAO {
 	
-	public List<Aluno> consultar(String nomeAluno, String ra) {
+	public List<Aluno> consultar(String nomeAluno, String ra, String cpf) {
 		return null;
 	}
 
@@ -15,8 +18,4 @@ public class AlunoDAOImpl extends GenericDAOImpl<Long, Aluno> implements AlunoDA
 		return null;
 	}
 
-	@Override
-	public Aluno consultarNomeAluno(String nomeAluno) {
-		return null;
-	}
 }

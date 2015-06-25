@@ -12,8 +12,11 @@
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
 			<p:panel id="Consultapessoa" header="Consulta de Pessoa">
-				<p:panelGrid>
-					<p:inputText id="Consulta" />
+				<p:panelGrid columns="4">
+					<h:outputLabel value="Nome: " />
+					<p:inputText id="nome" />
+					<p:commandButton type="submit" value="Consultar" />
+					<p:commandButton id="novo" value="Novo" action="CadastroPessoa.xhtml" />					
 				</p:panelGrid>
 
 				<br></br>
@@ -24,7 +27,7 @@
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15">
 
-					<p:column headerText="Id"  width="30">
+					<p:column headerText="Código"  width="30">
 						<h:outputText value="#{pessoa.idPessoa}" />
 					</p:column>
 
@@ -54,10 +57,6 @@
 
 				</p:dataTable>
 
-				<p:panelGrid columns="2">
-					<p:button id="cancelar" value="Cancelar" />
-					<p:button type="submit" value="Consultar" />
-				</p:panelGrid>
 			</p:panel>
 		</ui:define>
 	</ui:composition>

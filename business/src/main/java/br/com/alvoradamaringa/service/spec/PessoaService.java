@@ -1,5 +1,7 @@
 package br.com.alvoradamaringa.service.spec;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import br.com.alvoradamaringa.domain.Aluno;
@@ -23,8 +25,8 @@ public interface PessoaService {
 
 	void excluirProfessor(Professor professor) throws IntegridadeException;
 
-	void consultarAluno(String ra, String nome, String cpf);
+	List<Aluno> consultarAluno(String ra, String nome, String cpf);
 
-	public void consultarProfessor(String nome, String cpf);
+	List<Professor> consultarProfessor(String nome, String cpf);
 
 }

@@ -21,6 +21,20 @@
 > Copiar o arquivo [standalone-integrador-printer.xml](https://github.com/alvoradamaringa/integrador-printer/specification/jboss/standalone-integrador-printer.xml) para o diretório *WILDFLY_HOME\standalone\configuration*.
 >
 > Copiar o dretório [mysql](https://github.com/alvoradamaringa/integrador-printer/integrador-printer/specification/jboss/mysql) para o diretório *WILDFLY_HOME\modules\system\layers\base\com*.
+>
+> Adicionar o seguinte trecho de código na última linha do arquivo presente na pasta *WILDFLY_HOME\bin*
+
+##### Windows
+
+> Arquivo *standalone.conf.bat*
+
+`set "JAVA_OPTS=%JAVA_OPTS% -XX:-UseSplitVerifier"`
+
+##### Linux
+
+> Arquivo *standalone.conf*
+
+`JAVA_OPTS="$JAVA_OPTS -XX:-UseSplitVerifier"`
 
 > Copiar o arquivo **integrador-printer.war** gerado após a compilação do projeto para a pasta *WILDFLY\standalone\deployments*.
 
