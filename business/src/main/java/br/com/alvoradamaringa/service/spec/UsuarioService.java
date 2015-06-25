@@ -1,20 +1,39 @@
-package br.com.alvoradamaringa.service.spec;
+package br.com.alvoradamaringa.service.impl;
 
 import java.util.List;
 
-import javax.ejb.Local;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 import br.com.alvoradamaringa.domain.NivelUsuario;
 import br.com.alvoradamaringa.domain.Usuario;
+import br.com.alvoradamaringa.persistence.UsuarioDAO;
 import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
+import br.com.alvoradamaringa.service.spec.UsuarioService;
 
-@Local
-public interface UsuarioService {
+@Stateless
+public class UsuarioServiceBean implements UsuarioService {
 
-	public List<Usuario> consultarUsuario(String nome, NivelUsuario nivelUsuario);
+	@EJB 
+	UsuarioDAO usuarioDAO;
+	
+	@Override
+	public List<Usuario> consultarUsuario(String nome, NivelUsuario nivelUsuario) {
+		return usuarioDAO.consultarUsuario(nome, nivelUsuario);
+	}
 
-	public void salvarUsuario(Usuario usuario);
+	@Override
+	public void salvarUsuario(Usuario usuario) {
+		usuarioDAO.salvar(usuario);
+	}
 
-	public void excluirUsuario(Usuario usuario) throws IntegridadeException;
+	@Override
+	public void excluirUsuario(Usuario usuario) throws IntegridadeException {
+		try {
+			usuarioDAO.deletar(usuario);
+		}catch(Exception exception){
+			throw new IntegridadeException();
+		}
+	}
 
 }
