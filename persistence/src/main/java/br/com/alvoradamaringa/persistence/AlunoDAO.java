@@ -6,9 +6,8 @@ import br.com.alvoradamaringa.domain.Aluno;
 
 public interface AlunoDAO extends GenericDAO<Long, Aluno> {
 
-	public List<Aluno> consultar(String nomeAluno, String ra);
+	public List<Aluno> consultar(String nomeAluno, String ra, String cpf);
 	
-	public Aluno consultarNomeAluno(String nomeAluno);
 	
 	public Aluno consultarRa(String ra);
 	
