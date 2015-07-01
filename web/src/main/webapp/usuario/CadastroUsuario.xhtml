@@ -22,13 +22,17 @@
 		        		<h:outputLabel for="senha">Senha:</h:outputLabel>
 		        		<p:password id="senha" value="#{usuarioManagedBean.usuario.senha}" required="true" />
 		        		<h:outputLabel for="nivelusuario">Nível de Usuario:</h:outputLabel>
-						<h:selectOneMenu id="nivelusuario" value="#{usuarioManagedBean.usuario.nivelUsuario}">
-							<f:selectItem itemValue="1" itemLabel="Professor" />
-							<f:selectItem itemValue="2" itemLabel="Administrador" />
+						<h:selectOneMenu id="nivelusuario" 
+						value="#{usuarioManagedBean.usuario.nivelUsuario}" 
+						converter="nivelUsuarioConverter" >
+							<f:selectItems value="#{usuarioManagedBean.listaNivelUsuario}" 
+							var="nivel" 
+							itemValue="#{nivel.idNivelUsuario}" 
+							itemLabel="#{nivel.descricao}" />
 						</h:selectOneMenu>
 					</p:panelGrid>
 					<p:panelGrid columns="3">
-						<p:commandButton id="salvar" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
+						<p:commandButton id="salvar" process="@this" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
 						<p:commandButton id="limpar" type="reset" value="Limpar" />
 						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
 					</p:panelGrid>
