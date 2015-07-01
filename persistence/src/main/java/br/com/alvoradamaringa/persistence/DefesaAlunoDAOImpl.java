@@ -11,7 +11,7 @@ import br.com.alvoradamaringa.domain.DefesaAluno;
 public class DefesaAlunoDAOImpl extends GenericDAOImpl<Long, DefesaAluno> implements DefesaAlunoDAO {
 
 	@Override
-	public List<DefesaAluno> consultar(String nomeAluno, Date dataDefesa) {
+	public List<DefesaAluno> consultar(String nomeAluno, Date dataDefesa, String tema) {
 		return null;
 	}
 	
