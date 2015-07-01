@@ -41,6 +41,7 @@ public class DefesaAluno implements Serializable {
 	private PesquisaTipoTcc pesquisaTipoTcc;
 	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = DefesaComentario.class)
 	private List<DefesaComentario> comentarios = new ArrayList<DefesaComentario>();
+	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = BancaProfessor.class)
 	private List<BancaProfessor> banca = new ArrayList<BancaProfessor>();
 	private BigDecimal nota;
 	@Temporal(TemporalType.DATE)
