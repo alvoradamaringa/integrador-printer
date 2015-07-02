@@ -39,7 +39,10 @@
 				</p:panel>
 				<br />
 				<p:panel id="panelComentario" header="Comentários">
-					<p:panelGrid columns="3" style="width:600px">
+					<p:panelGrid columns="5" style="width:600px">
+						<h:outputLabel value="Professor: " />
+						<p:autoComplete id="professorComentario" dropdown="true"
+							style="margin-right:60px" />
 						<h:outputLabel value="Comentário: " />
 						<p:inputText id="comentario" rows="6" cols="33"
 							style="width:291px" />

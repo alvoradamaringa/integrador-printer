@@ -15,13 +15,13 @@
 
 				<p:panelGrid columns="4">
 					<h:outputLabel value="Descrição: " />
-					<p:inputText id="Consulta" />
-					<p:commandButton id="consultar" type="submit" value="Consultar" />
+					<p:inputText id="Consulta" value="#{usuarioManagedBean.nome}" />
+					<p:commandButton id="consultar" action="#{usuarioManagedBean.consultarUsuario}" value="Consultar" process="@this" update="tabela" />
 					<p:commandButton id="novo" value="Novo" action="CadastroUsuario.xhtml" />
 				</p:panelGrid>
 				<br></br>
 
-				<p:dataTable var="usuario" value="#{usuarioManagedBean.usuarios}"
+				<p:dataTable id="tabela" var="usuario" value="#{usuarioManagedBean.listaUsuario}"
 					rows="10" paginator="true"
 					emptyMessage="Registros não encontrados."
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"

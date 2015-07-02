@@ -20,7 +20,7 @@ public class NivelUsuarioManagedBean implements Serializable {
 	
 	@EJB
 	private NivelUsuarioService nivelUsuarioService;
-
+	
 	public void cadastrarNivel() {
 		try {
 			nivelUsuarioService.salvarNivelUsuario(nivelUsuario);
@@ -45,4 +45,5 @@ public class NivelUsuarioManagedBean implements Serializable {
 	public List<NivelUsuario> getNiveisUsuario(){
 		return null;
 	}
+
 }

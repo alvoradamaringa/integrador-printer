@@ -41,7 +41,8 @@ public class DefesaAluno implements Serializable {
 	private PesquisaTipoTcc pesquisaTipoTcc;
 	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = DefesaComentario.class)
 	private List<DefesaComentario> comentarios = new ArrayList<DefesaComentario>();
-	private Lista<BancaProfessores> banca = new ArrayList<BancaProfessores>();
+	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = BancaProfessor.class)
+	private List<BancaProfessor> banca = new ArrayList<BancaProfessor>();
 	private BigDecimal nota;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA")
@@ -63,6 +64,10 @@ public class DefesaAluno implements Serializable {
 		defesaComentario.adicionarComentario(defesaAluno, professorCurso,
 				comentario);
 		this.comentarios.add(defesaComentario);
+	}
+	
+	public void adicionarBancaProfessores(List<BancaProfessor> banca){
+		this.banca.addAll(banca);
 	}
 
 	public Long getIdDefesaAluno() {
@@ -111,12 +116,6 @@ public class DefesaAluno implements Serializable {
 
 	public void setTema(String tema) {
 		this.tema = tema;
-	}
-	
-	public void adicionarBancaProfessores(List<BancaProfessores> banca){
-		
-		banca.addAll(banca);
-		
 	}
 
 }
