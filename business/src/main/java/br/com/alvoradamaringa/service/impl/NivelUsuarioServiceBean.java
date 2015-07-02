@@ -1,34 +1,41 @@
 package br.com.alvoradamaringa.service.impl;
 
-import java.util.List;
-
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-
 import br.com.alvoradamaringa.domain.NivelUsuario;
 import br.com.alvoradamaringa.persistence.NivelUsuarioDAO;
 import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
 import br.com.alvoradamaringa.service.spec.NivelUsuarioService;
+import java.util.List;
+import javax.ejb.Stateless;
 
-@Stateless
 public class NivelUsuarioServiceBean implements NivelUsuarioService {
 
-	@EJB
-	private NivelUsuarioDAO nivelUsuarioDAO;
-	
-	@Override
-	public void salvarNivelUsuario(NivelUsuario NivelUsuario) {
-		
-	}
+     @Override
+    public List<NivelUsuario> salvarNivelUsuario(String descricao) {
 
-	@Override
-	public List<NivelUsuario> consultarNivelUsuario(String descricao) {
-		return nivelUsuarioDAO.consultar(descricao);
-	}
+    nivelUsuarioDAO.salvar(nivelUsuario);
+        if (nivelUsuario == null) {
+            salvarNivelUsuario(nivelUsuario);
+       } 
+  }
 
-	@Override
-	public void excluirNivelUsuario(NivelUsuario nivelUsuario) throws IntegridadeException {
-		
-	}
+    @EJB
+    private NivelUsuarioDAO nivelUsuarioDAO;
+
+    @Override
+    public void consultarNivelUsuario(NivelUsuario nivelUsuario) {
+        nivelUsuarioDAO.consultar((NivelUsuario) nivelUsuarioDAO);
+        return (List<NivelUsuario>) nivelUsuarioDAO;
+        }
+    }
+
+    @Override
+    public void excluirNivelUsuario(NivelUsuario nivelUsuario){
+        nivelUsuarioDAO.deletar(nivelUsuario);
+        if (nivelUsuario == null) {
+            nivelUsuarioDAO.deletar(nivelUsuario);
+            
+        }
+            throws IntegridadeException;
+    }
 
 }
