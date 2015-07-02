@@ -13,7 +13,7 @@ import br.com.alvoradamaringa.service.spec.CursoService;
 public class CursoServiceBean implements CursoService {
 
 	@EJB
-	CursoDAO cursoDAO;
+	private CursoDAO cursoDAO;
 	
 	@Override
 	public void salvarCurso(Curso curso) {
