@@ -44,5 +44,12 @@ public class Professor implements Serializable {
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
-	
+
+	public String getCpf() {
+		if (pessoa == null) {
+			return null;
+		} else {
+			return pessoa.getCpf();
+		}
+	}
 }

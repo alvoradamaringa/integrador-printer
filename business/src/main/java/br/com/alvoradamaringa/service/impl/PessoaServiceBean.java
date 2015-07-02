@@ -2,6 +2,7 @@ package br.com.alvoradamaringa.service.impl;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import br.com.alvoradamaringa.domain.Aluno;
@@ -18,7 +19,9 @@ import br.com.alvoradamaringa.service.spec.PessoaService;
 @Stateless
 public class PessoaServiceBean implements PessoaService {
 
+	@EJB
 	private AlunoDAO alunoDAO;
+	@EJB
 	private ProfessorDAO professorDAO;
 
 	@Override
@@ -42,11 +45,11 @@ public class PessoaServiceBean implements PessoaService {
 	public void adicionarProfessor(Professor professor)
 			throws CpfNaoInformadoException, CpfDuplicadoException {
 
-		if (professor.getPessoa().getCpf() == null) {
+		if (professor.getCpf() == null) {
 			throw new CpfNaoInformadoException();
 		}
 
-		Professor cpfValidado = professorDAO.consultarCpf(professor.getPessoa().getCpf());
+		Professor cpfValidado = professorDAO.consultarCpf(professor.getCpf());
 
 		if (cpfValidado != null) {
 			throw new CpfDuplicadoException();
