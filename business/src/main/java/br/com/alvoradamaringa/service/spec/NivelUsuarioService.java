@@ -13,6 +13,8 @@ public interface NivelUsuarioService {
 	List<NivelUsuario> consultarNivelUsuario(String descricao);
 
 	void salvarNivelUsuario(NivelUsuario nivelUsuario);
+	
+	NivelUsuario editarNivelUsuario(NivelUsuario nivelUsuario);
 
 	void excluirNivelUsuario(NivelUsuario nivelUsuario)
 			throws IntegridadeException;

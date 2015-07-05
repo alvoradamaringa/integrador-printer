@@ -26,6 +26,11 @@ public class UsuarioServiceBean implements UsuarioService {
 	public void salvarUsuario(Usuario usuario) {
 		usuarioDAO.salvar(usuario);
 	}
+	
+	@Override
+	public Usuario editarUsuario(Usuario usuario) {
+		return usuarioDAO.findById(usuario.getIdUsuario());
+	}
 
 	@Override
 	public void excluirUsuario(Usuario usuario) throws IntegridadeException {
