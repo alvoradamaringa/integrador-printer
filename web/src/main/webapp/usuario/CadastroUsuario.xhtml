@@ -4,19 +4,15 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-	<h:head>
-		<title>Projeto Integrador - Printer</title>
-	</h:head>
-	
+
 	<ui:composition template="/template/template.xhtml">
-	
 	<ui:define name="content">
-			<p:panel header="Cadastro de Usuario">
+			<p:panel header="Cadastro de Usuário">
 				<h:form id="formcadusuario">
 					<p:growl id="growl" />
 					<h:outputLabel value="* Campos Obrigátorios" />
 					<p:panelGrid columns="2">
-		        		<h:outputLabel for="identificador">ID: </h:outputLabel>
+		        		<h:outputLabel for="identificador">Código: </h:outputLabel>
 		        		<p:inputText id="identificador" value="#{usuarioManagedBean.usuario.idUsuario}" readonly="true" disabled="true"/>
 		        		<h:outputLabel for="usuario">Login:</h:outputLabel>
 		        		<p:inputText id="usuario" value="#{usuarioManagedBean.usuario.login}" required="true" requiredMessage="Campo usuário é obrigatório"/>
@@ -30,14 +26,14 @@
 						requiredMessage="Campo nível de usuário é obrigatório" >
 							<f:selectItems value="#{usuarioManagedBean.listaNivelUsuario}" 
 							var="nivel" 
-							itemValue="#{nivel.idNivelUsuario}" 
+							itemValue="#{nivel}" 
 							itemLabel="#{nivel.descricao}" />
 						</h:selectOneMenu>
 					</p:panelGrid>
 					<p:panelGrid columns="3">
-						<p:commandButton id="salvar" ajax="false" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
+						<p:commandButton id="salvar" ajax="false" action="#{usuarioManagedBean.salvarUsuario}" type="submit" value="Salvar" />
 						<p:commandButton id="limpar" type="reset" value="Limpar" />
-						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
+						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaUsuario.xhtml" immediate="true" />
 					</p:panelGrid>
 				</h:form>
 			</p:panel>

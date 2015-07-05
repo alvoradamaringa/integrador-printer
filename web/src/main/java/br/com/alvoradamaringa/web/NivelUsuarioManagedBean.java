@@ -44,7 +44,6 @@ public class NivelUsuarioManagedBean implements Serializable {
 	public void editarNivelUsuario() {
 		try {
 			nivelUsuario = nivelUsuarioService.editarNivelUsuario(nivelUsuario);
-			consultarNivelUsuario();
 			FacesUtils.redirect(TELA_CADASTRO);
 		} catch (Exception ex) {
 			FacesUtils.redirect(TELA_CONSULTA);

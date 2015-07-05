@@ -15,6 +15,8 @@ public interface UsuarioService {
 
 	public void salvarUsuario(Usuario usuario);
 
+	public Usuario editarUsuario(Usuario usuario);
+	
 	public void excluirUsuario(Usuario usuario) throws IntegridadeException;
 
 }

@@ -1,10 +1,13 @@
 package br.com.alvoradamaringa.web.converter;
 
-import javax.ejb.EJB;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.alvoradamaringa.domain.NivelUsuario;
 import br.com.alvoradamaringa.persistence.NivelUsuarioDAO;
@@ -12,15 +15,18 @@ import br.com.alvoradamaringa.persistence.NivelUsuarioDAO;
 @FacesConverter(value = "nivelUsuarioConverter")
 public class NivelUsuarioConverter implements Converter {
 
-	@EJB
-	private NivelUsuarioDAO nivelUsuarioDAO;
-	
 	@Override
 	public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-		if ("".equals(value) || value == null) {
-			return null;
+		if (StringUtils.isNotBlank(value)) {
+			try {
+				InitialContext ic = new InitialContext();
+				NivelUsuarioDAO nivelUsuarioDAO = (NivelUsuarioDAO) ic.lookup("java:module/NivelUsuarioDAOImpl");
+				return nivelUsuarioDAO.findById(Long.valueOf(value));
+			} catch (NamingException e) {
+				return null;
+			}
 		}
-		return nivelUsuarioDAO.findById(Long.valueOf(value));
+		return null;
 	}
 
 	@Override
@@ -29,7 +35,7 @@ public class NivelUsuarioConverter implements Converter {
 			NivelUsuario nivelUsuario = (NivelUsuario) value;
 			return nivelUsuario.getIdNivelUsuario().toString();
 		}
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 }
