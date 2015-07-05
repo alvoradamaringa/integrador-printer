@@ -13,18 +13,21 @@
 	<ui:define name="content">
 			<p:panel header="Cadastro de Usuario">
 				<h:form id="formcadusuario">
+					<p:growl id="growl" />
 					<h:outputLabel value="* Campos Obrigátorios" />
 					<p:panelGrid columns="2">
 		        		<h:outputLabel for="identificador">ID: </h:outputLabel>
 		        		<p:inputText id="identificador" value="#{usuarioManagedBean.usuario.idUsuario}" readonly="true" disabled="true"/>
 		        		<h:outputLabel for="usuario">Login:</h:outputLabel>
-		        		<p:inputText id="usuario" value="#{usuarioManagedBean.usuario.login}" required="true"/>
+		        		<p:inputText id="usuario" value="#{usuarioManagedBean.usuario.login}" required="true" requiredMessage="Campo usuário é obrigatório"/>
 		        		<h:outputLabel for="senha">Senha:</h:outputLabel>
-		        		<p:password id="senha" value="#{usuarioManagedBean.usuario.senha}" required="true" />
-		        		<h:outputLabel for="nivelusuario">Nível de Usuario:</h:outputLabel>
+		        		<p:password id="senha" value="#{usuarioManagedBean.usuario.senha}" required="true" requiredMessage="Campo senha é obrigatório"/>
+		        		<h:outputLabel for="nivelusuario">Nível de Usuário:</h:outputLabel>
 						<h:selectOneMenu id="nivelusuario" 
 						value="#{usuarioManagedBean.usuario.nivelUsuario}" 
-						converter="nivelUsuarioConverter" >
+						converter="nivelUsuarioConverter"
+						required="true"
+						requiredMessage="Campo nível de usuário é obrigatório" >
 							<f:selectItems value="#{usuarioManagedBean.listaNivelUsuario}" 
 							var="nivel" 
 							itemValue="#{nivel.idNivelUsuario}" 
@@ -32,7 +35,7 @@
 						</h:selectOneMenu>
 					</p:panelGrid>
 					<p:panelGrid columns="3">
-						<p:commandButton id="salvar" process="@this" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
+						<p:commandButton id="salvar" ajax="false" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
 						<p:commandButton id="limpar" type="reset" value="Limpar" />
 						<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
 					</p:panelGrid>

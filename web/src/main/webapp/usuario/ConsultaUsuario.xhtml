@@ -11,36 +11,39 @@
 <h:body>
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
-			<p:panel id="ConsultaUsuario" header="Consulta de Usuário">
-
-				<p:panelGrid columns="4">
-					<h:outputLabel value="Descrição: " />
-					<p:inputText id="Consulta" value="#{usuarioManagedBean.nome}" />
-					<p:commandButton id="consultar" action="#{usuarioManagedBean.consultarUsuario}" value="Consultar" process="@this" update="tabela" />
-					<p:commandButton id="novo" value="Novo" action="CadastroUsuario.xhtml" />
-				</p:panelGrid>
-				<br></br>
-
-				<p:dataTable id="tabela" var="usuario" value="#{usuarioManagedBean.listaUsuario}"
-					rows="10" paginator="true"
-					emptyMessage="Registros não encontrados."
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15">
+		<h:form>
+				<p:growl id="growl" />
+				<p:panel id="ConsultaUsuario" header="Consulta de Usuário">
+	
+					<p:panelGrid columns="4">
+						<h:outputLabel value="Descrição: " />
+						<p:inputText id="Consulta" value="#{usuarioManagedBean.nome}" />
+						<p:commandButton id="consultar" action="#{usuarioManagedBean.consultarUsuario}" value="Consultar" process="@this" update="tabela" />
+						<p:commandButton id="novo" value="Novo" action="#{usuarioManagedBean.novoUsuario}" />
+					</p:panelGrid>
+					<br></br>
+	
+					<p:dataTable id="tabela" var="usuario" value="#{usuarioManagedBean.listaUsuario}"
+						rows="10" paginator="true"
+						emptyMessage="Registros não encontrados."
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+						
+						<p:column headerText="Código"  width="50">
+							<h:outputText value="#{usuario.idUsuario}" />
+						</p:column>
+	
+						<p:column headerText="Nome">
+							<h:outputText value="#{usuario.login}" />
+						</p:column>
+	
+						<p:column headerText="Curso">
+							<h:outputText value="#{usuario.nivelUsuario.descricao}" />
+						</p:column>
+					</p:dataTable>
 					
-					<p:column headerText="Código"  width="50">
-						<h:outputText value="#{usuario.idUsuario}" />
-					</p:column>
-
-					<p:column headerText="Nome">
-						<h:outputText value="#{usuario.login}" />
-					</p:column>
-
-					<p:column headerText="Curso">
-						<h:outputText value="#{usuario.nivelUsuario.descricao}" />
-					</p:column>
-				</p:dataTable>
-				
-			</p:panel>
+				</p:panel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

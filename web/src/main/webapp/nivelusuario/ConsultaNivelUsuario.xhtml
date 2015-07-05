@@ -4,42 +4,61 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Projeto Integrador - Printer</title>
-</h:head>
 <h:body>
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
+			<h:form id="form">
+				<p:growl id="growl" />
+				<p:panel header="Consulta Níveis de Usuário">
+					<p:panelGrid columns="4">
+						<h:outputLabel value="Descrição: " />
+						<p:inputText id="consulta"
+							value="#{nivelUsuarioManagedBean.descricao}" />
+						<p:commandButton id="consultar"
+							action="#{nivelUsuarioManagedBean.consultarNivelUsuario}"
+							value="Consultar" process="@this consulta" update="tabela" />
+						<p:commandButton id="novo" value="Novo"
+							action="#{nivelUsuarioManagedBean.novoNivelUsuario}" />
+					</p:panelGrid>
 
-			<p:panel header="Consulta Níveis de Usuário">
-				<p:panelGrid columns="4">
-					<h:outputLabel value="Descrição: " />
-					<p:inputText id="descricao" />
-					<p:commandButton type="submit" value="Consultar" />
-					<p:commandButton id="novo" value="Novo" action="CadastroNivelUsuario.xhtml" />
-				</p:panelGrid>
+					<br></br>
 
-				<br></br>
+					<p:dataTable id="tabela" var="nvlusu"
+						value="#{nivelUsuarioManagedBean.listaNivelUsuario}" rows="10"
+						paginator="true" emptyMessage="Registros não encontrados."
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
 
-				<p:dataTable var="nvlusu"
-					value="#{nivelUsuarioManagedBean.niveisUsuario}" rows="10"
-					paginator="true"
-					emptyMessage="Registros não encontrados."
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15">
+						<p:column headerText="Código" width="100">
+							<h:outputText value="#{nvlusu.idNivelUsuario}" />
+						</p:column>
 
-					<p:column headerText="Código" width="100">
-						<h:outputText value="#{nvlusu.idNivelUsuario}" />
-					</p:column>
+						<p:column headerText="Descrição">
+							<h:outputText value="#{nvlusu.descricao}" />
+						</p:column>
+						
+						<p:column headerText="Ações">
+							<p:commandButton id="editar" value="Editar"
+							action="#{nivelUsuarioManagedBean.editarNivelUsuario}">
+								<f:setPropertyActionListener target="#{nivelUsuarioManagedBean.nivelUsuario}" value="#{nvlusu}" />
+							</p:commandButton>
+							
+							<p:commandButton id="excluir" value="Excluir"
+							action="#{nivelUsuarioManagedBean.excluirNivelUsuario}" update="tabela form:growl">
+								<f:setPropertyActionListener target="#{nivelUsuarioManagedBean.nivelUsuario}" value="#{nvlusu}" />
+								<p:confirm header="Confirmação" message="Você tem certeza?" icon="ui-icon-alert" />
+							</p:commandButton>
+							
+							<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+						        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						    </p:confirmDialog>
+						</p:column>
+						
+					</p:dataTable>
 
-					<p:column headerText="Descrição">
-						<h:outputText value="#{nvlusu.descricao}" />
-					</p:column>
-
-				</p:dataTable>
-
-			</p:panel>
+				</p:panel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

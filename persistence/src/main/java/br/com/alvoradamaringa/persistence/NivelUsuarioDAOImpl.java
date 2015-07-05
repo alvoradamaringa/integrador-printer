@@ -19,7 +19,7 @@ public class NivelUsuarioDAOImpl extends GenericDAOImpl<Long, NivelUsuario> impl
 		}
 		Query query = entityManager.createQuery(sb.toString());
 		if (descricao != null) {
-			query.setParameter("descricao", descricao);
+			query.setParameter("descricao", "%" + descricao + "%");
 		}
 		try {
 			return (List<NivelUsuario>) query.getResultList();

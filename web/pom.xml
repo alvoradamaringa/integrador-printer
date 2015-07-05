@@ -11,7 +11,7 @@
 	<name>Projeto Integrador - Printer :: Web</name>
 	
 	<build>
-		<finalName>integrador-printer</finalName>
+		<finalName>integrador-printer-web</finalName>
 	</build>
 
 	<dependencies>
