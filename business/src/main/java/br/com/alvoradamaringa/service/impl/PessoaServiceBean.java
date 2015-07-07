@@ -2,11 +2,14 @@ package br.com.alvoradamaringa.service.impl;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import br.com.alvoradamaringa.domain.Aluno;
 import br.com.alvoradamaringa.domain.Professor;
+import br.com.alvoradamaringa.domain.ProfessorCurso;
 import br.com.alvoradamaringa.persistence.AlunoDAO;
+import br.com.alvoradamaringa.persistence.ProfessorCursoDAO;
 import br.com.alvoradamaringa.persistence.ProfessorDAO;
 import br.com.alvoradamaringa.service.exceptions.CpfDuplicadoException;
 import br.com.alvoradamaringa.service.exceptions.CpfNaoInformadoException;
@@ -18,8 +21,12 @@ import br.com.alvoradamaringa.service.spec.PessoaService;
 @Stateless
 public class PessoaServiceBean implements PessoaService {
 
+	@EJB
 	private AlunoDAO alunoDAO;
+	@EJB
 	private ProfessorDAO professorDAO;
+	@EJB
+	private ProfessorCursoDAO professorCursoDAO;
 
 	@Override
 	public void salvarAluno(Aluno aluno) throws RaNaoInformadoException, RaDuplicadoException {
@@ -42,11 +49,11 @@ public class PessoaServiceBean implements PessoaService {
 	public void adicionarProfessor(Professor professor)
 			throws CpfNaoInformadoException, CpfDuplicadoException {
 
-		if (professor.getPessoa().getCpf() == null) {
+		if (professor.getCpf() == null) {
 			throw new CpfNaoInformadoException();
 		}
 
-		Professor cpfValidado = professorDAO.consultarCpf(professor.getPessoa().getCpf());
+		Professor cpfValidado = professorDAO.consultarCpf(professor.getCpf());
 
 		if (cpfValidado != null) {
 			throw new CpfDuplicadoException();
@@ -87,6 +94,11 @@ public class PessoaServiceBean implements PessoaService {
 		List<Professor> lista = professorDAO.consultar(nomeProfessor, cpf);
 		return lista;
 
+	}
+
+	@Override
+	public List<ProfessorCurso> consultarProfessorCurso(String nomeProfessor) {
+		return professorCursoDAO.consultar(nomeProfessor, null);
 	}
 
 }

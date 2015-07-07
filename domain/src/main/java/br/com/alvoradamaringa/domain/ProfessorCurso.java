@@ -13,8 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PROFESSORCURSO")
-public class ProfessorCurso  implements Serializable {
-	
+public class ProfessorCurso implements Serializable {
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +45,46 @@ public class ProfessorCurso  implements Serializable {
 
 	public Professor getProfessor() {
 		return professor;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
+		result = prime
+				* result
+				+ ((idProfessorCurso == null) ? 0 : idProfessorCurso.hashCode());
+		result = prime * result
+				+ ((professor == null) ? 0 : professor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProfessorCurso other = (ProfessorCurso) obj;
+		if (curso == null) {
+			if (other.curso != null)
+				return false;
+		} else if (!curso.equals(other.curso))
+			return false;
+		if (idProfessorCurso == null) {
+			if (other.idProfessorCurso != null)
+				return false;
+		} else if (!idProfessorCurso.equals(other.idProfessorCurso))
+			return false;
+		if (professor == null) {
+			if (other.professor != null)
+				return false;
+		} else if (!professor.equals(other.professor))
+			return false;
+		return true;
 	}
 
 }

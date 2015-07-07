@@ -21,8 +21,8 @@ public interface DefesaService {
 
     void excluirDefesa(DefesaAluno DefesaAluno) throws IntegridadeException;
 
-    void adicionarComentario(DefesaComentario DefesaComentario);
+    void adicionarComentario(DefesaComentario DefesaComentario, DefesaAluno defesaAluno);
     
-    void excluirComentario(DefesaComentario DefesaComentario);
+    void excluirComentario(DefesaComentario DefesaComentario, DefesaAluno defesaAluno);
 
 }

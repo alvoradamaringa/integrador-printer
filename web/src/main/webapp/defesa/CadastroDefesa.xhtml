@@ -5,11 +5,6 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Cadastro de Defesa - Projeto Integrador</title>
-
-</h:head>
-
 <ui:composition template="/template/template.xhtml">
 	<ui:define name="content">
 
@@ -39,23 +34,29 @@
 				</p:panel>
 				<br />
 				<p:panel id="panelComentario" header="Comentários">
-					<p:panelGrid columns="3" style="width:600px">
+					<p:panelGrid columns="5" style="width:600px">
+						<h:outputLabel value="Professor: " />
+						<p:autoComplete id="professorComentario" value="#{defesaManagedBean.professorCurso}" completeMethod="#{defesaManagedBean.consultarProfessor}"
+                        var="professorCurso" itemLabel="#{professorCurso.professor.pessoa.nome}" itemValue="professorCurso" converter="professorCursoConverter" forceSelection="true" />
+ 
 						<h:outputLabel value="Comentário: " />
-						<p:inputText id="comentario" rows="6" cols="33"
+						<p:inputText id="comentario" value="#{defesaManagedBean.comentario}" rows="6" cols="33"
 							style="width:291px" />
-						<p:commandButton value="Adicionar" />
+						<p:commandButton value="Adicionar" action="#{defesaManagedBean.adicionarComentario}" process="panelComentario" update="tabelaComentarios" />
 					</p:panelGrid>
-					<p:dataTable var="comentarios" value="" style="width:389px">
+					<p:dataTable id="tabelaComentarios" var="comentario" value="#{defesaManagedBean.defesa.comentarios}" style="width:389px">
 						<p:column headerText="Professor">
-							<h:outputText value="Prof x" />
+							<h:outputText value="#{comentario.professorCurso.professor.pessoa.nome}" />
 						</p:column>
 
 						<p:column headerText="Comentário">
-							<h:outputText value="Prof x" />
+							<h:outputText value="#{comentario.comentario}" />
 						</p:column>
 
 						<p:column headerText="Ação">
-							<p:commandButton value="Remover" />
+							<p:commandButton value="Remover" action="#{defesaManagedBean.removerComentario}" update="tabelaComentarios">
+								<f:setPropertyActionListener target="#{defesaManagedBean.defesaComentario}" value="#{comentario}" />
+							</p:commandButton>
 						</p:column>
 					</p:dataTable>
 

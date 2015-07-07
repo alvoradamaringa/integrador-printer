@@ -15,8 +15,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BANCAPROFESSOR")
-public class BancaProfessor  implements Serializable {
-	
+public class BancaProfessor implements Serializable {
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +56,51 @@ public class BancaProfessor  implements Serializable {
 
 	public TipoProfessor getTipoProfessor() {
 		return tipoProfessor;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((defesaAluno == null) ? 0 : defesaAluno.hashCode());
+		result = prime
+				* result
+				+ ((idBancaProfessor == null) ? 0 : idBancaProfessor.hashCode());
+		result = prime * result
+				+ ((professor == null) ? 0 : professor.hashCode());
+		result = prime * result
+				+ ((tipoProfessor == null) ? 0 : tipoProfessor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BancaProfessor other = (BancaProfessor) obj;
+		if (defesaAluno == null) {
+			if (other.defesaAluno != null)
+				return false;
+		} else if (!defesaAluno.equals(other.defesaAluno))
+			return false;
+		if (idBancaProfessor == null) {
+			if (other.idBancaProfessor != null)
+				return false;
+		} else if (!idBancaProfessor.equals(other.idBancaProfessor))
+			return false;
+		if (professor == null) {
+			if (other.professor != null)
+				return false;
+		} else if (!professor.equals(other.professor))
+			return false;
+		if (tipoProfessor != other.tipoProfessor)
+			return false;
+		return true;
 	}
 
 }
