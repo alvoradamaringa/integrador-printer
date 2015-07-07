@@ -7,7 +7,9 @@ import javax.ejb.Stateless;
 
 import br.com.alvoradamaringa.domain.Aluno;
 import br.com.alvoradamaringa.domain.Professor;
+import br.com.alvoradamaringa.domain.ProfessorCurso;
 import br.com.alvoradamaringa.persistence.AlunoDAO;
+import br.com.alvoradamaringa.persistence.ProfessorCursoDAO;
 import br.com.alvoradamaringa.persistence.ProfessorDAO;
 import br.com.alvoradamaringa.service.exceptions.CpfDuplicadoException;
 import br.com.alvoradamaringa.service.exceptions.CpfNaoInformadoException;
@@ -23,6 +25,8 @@ public class PessoaServiceBean implements PessoaService {
 	private AlunoDAO alunoDAO;
 	@EJB
 	private ProfessorDAO professorDAO;
+	@EJB
+	private ProfessorCursoDAO professorCursoDAO;
 
 	@Override
 	public void salvarAluno(Aluno aluno) throws RaNaoInformadoException, RaDuplicadoException {
@@ -90,6 +94,11 @@ public class PessoaServiceBean implements PessoaService {
 		List<Professor> lista = professorDAO.consultar(nomeProfessor, cpf);
 		return lista;
 
+	}
+
+	@Override
+	public List<ProfessorCurso> consultarProfessorCurso(String nomeProfessor) {
+		return professorCursoDAO.consultar(nomeProfessor, null);
 	}
 
 }

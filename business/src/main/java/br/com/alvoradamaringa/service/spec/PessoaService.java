@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import br.com.alvoradamaringa.domain.Aluno;
 import br.com.alvoradamaringa.domain.Professor;
+import br.com.alvoradamaringa.domain.ProfessorCurso;
 import br.com.alvoradamaringa.service.exceptions.CpfDuplicadoException;
 import br.com.alvoradamaringa.service.exceptions.CpfNaoInformadoException;
 import br.com.alvoradamaringa.service.exceptions.IntegridadeException;
@@ -28,5 +29,7 @@ public interface PessoaService {
 	List<Aluno> consultarAluno(String ra, String nome, String cpf);
 
 	List<Professor> consultarProfessor(String nome, String cpf);
+
+	List<ProfessorCurso> consultarProfessorCurso(String nomeProfessor);
 
 }
