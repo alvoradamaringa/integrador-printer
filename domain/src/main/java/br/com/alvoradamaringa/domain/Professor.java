@@ -17,9 +17,9 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name = "PROFESSOR")
+@Table(name = "PROFESSOR")
 public class Professor implements Serializable {
-	
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Professor implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ID_PESSOA")
 	private Pessoa pessoa;
-	
+
 	public void adicionarPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
@@ -52,4 +52,37 @@ public class Professor implements Serializable {
 			return pessoa.getCpf();
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((idProfessor == null) ? 0 : idProfessor.hashCode());
+		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Professor other = (Professor) obj;
+		if (idProfessor == null) {
+			if (other.idProfessor != null)
+				return false;
+		} else if (!idProfessor.equals(other.idProfessor))
+			return false;
+		if (pessoa == null) {
+			if (other.pessoa != null)
+				return false;
+		} else if (!pessoa.equals(other.pessoa))
+			return false;
+		return true;
+	}
+
 }
