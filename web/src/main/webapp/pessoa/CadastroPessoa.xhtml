@@ -19,7 +19,7 @@
         <h:form style="text-align:left">
                	<p:panelGrid columns="4">
         		<h:outputLabel class="label" for="identificador">ID:</h:outputLabel>
-        		<p:inputText id="identificador" value="#{PessoaManagedBean.pessoa.idPessoa}" readonly="true" />
+        		<p:inputText id="identificador" value="#{pessoaManagedBean.pessoa.idPessoa}" readonly="true" />
         		<h:outputLabel for="nome" value="NOME:" />
         		<p:inputText id="nome" value="#{pessoaManagedBean.pessoa.nome}"/>
         	    <h:outputLabel for="cpf" value="CPF:" />
@@ -28,8 +28,7 @@
         		<p:inputText id="endereco" value="#{pessoaManagedBean.pessoa.endereco}" required="true"/>
         		<p:outputLabel for="sexo" value="SEXO:" />
         		<p:selectOneMenu id="sexo" value="#{pessoaManagedBean.pessoa.sexo}">
-        			<f:selectItem itemLabel="Selecionar" itemValue="" />
-            		<f:selectItem itemLabel="Masculino" itemValue="M" />
+        			<f:selectItem itemLabel="Masculino" itemValue="M" />
             		<f:selectItem itemLabel="Feminino" itemValue="F" />
             	</p:selectOneMenu>
             	<p:outputLabel for="telefone" value="TELEFONE:" />
@@ -38,17 +37,9 @@
         		<p:inputText id="email" value="#{pessoaManagedBean.pessoa.email}" required="true"/>
         	    <p:outputLabel for="dataNascimento" value="DATA NASC:" />
         		<p:calendar id="dataNascimento"  showOn="button" value="#{pessoaManagedBean.pessoa.dataNascimento}" required="true"/>
-        	    <p:outputLabel for="tipoUsuario" value="TIPO:" />
-        		<p:selectOneRadio id="tipoUsuario" >
-            		<f:selectItem itemLabel="Aluno" itemValue="1" />
-            		<f:selectItem itemLabel="Professor" itemValue="2" />
-                </p:selectOneRadio>
-                <h:outputLabel for="codUsuario" value="RA / MATRICULA:" />
-        		<p:inputText id="codUsuario"/>
-        		
-       		  	</p:panelGrid>		
+        	    </p:panelGrid>		
         		<p:panelGrid columns="3">
-					<p:commandButton id="salvar" action="#{pessoaManagedBean.cadastrarPessoa}" type="submit" value="Salvar" />
+					<p:commandButton id="salvar" ajax="false" action="#{pessoaManagedBean.salvarPessoa()}" type="submit" value="Salvar" />
 					<p:commandButton id="limpar" type="reset" value="Limpar" />
 					<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
 				</p:panelGrid>
