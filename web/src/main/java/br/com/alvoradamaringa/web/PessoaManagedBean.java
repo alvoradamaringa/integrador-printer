@@ -1,5 +1,6 @@
 package br.com.alvoradamaringa.web;
 
+
 import java.io.Serializable;
 import java.util.List;
 
