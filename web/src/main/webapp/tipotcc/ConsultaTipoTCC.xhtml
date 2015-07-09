@@ -15,8 +15,8 @@
 			<p:panel id="Consultatipotcc" header="Consulta Tipo de TCC">
 				<p:panelGrid columns="4">
 					<h:outputLabel value="Descrição: " />
-					<p:inputText id="Consulta" />
-					<p:commandButton type="submit" value="Consultar" />
+					<p:inputText id="Consulta" value="#{tipoTccManagedBean.descricao}"/>
+					<p:commandButton type="submit" value="Consultar" action="#{tipoTccManagedBean.consultarTipoTcc}" process="@this Consulta" update="tipotcc"/>
 					<p:commandButton id="novo" value="Novo" action="CadastroTipoTCC.xhtml" />
 				</p:panelGrid>
 
