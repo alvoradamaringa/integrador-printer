@@ -30,7 +30,6 @@ div {
 	font-weight: bold;
 	font-size: 25px !important;
 	text-align: center;
-	border-bottom: 1px solid #1515ab !important;
 }
 
 .ui-layout-north img {
@@ -41,31 +40,41 @@ div {
 	vertical-align: middle;
 }
 
+.ui-menu,
+.ui-widget-content {
+	border: none !important;
+}
+
 .ui-layout-west {
-	width: 170px;
+	width: 172px !important;
 }
 
 .ui-layout-south {
-	height: 40px;
+	height: 22px;
 	font-weight: bold;
 	text-align: center;
-	border: 1px solid #1515ab !important;
 }
 
-.ui-widget-content {
-	border: none;
+.ui-layout-south .ui-layout-unit-content {
+	height: 20px !important;
 }
 
-.ui-menu,
+.ui-layout-west,
+.ui-layout-south,
 .ui-panel-titlebar,
 .ui-panel,
 .ui-datatable {
-	border: 1px solid #1515ab !important;
+	border: 1px solid #e0e0e0 !important;
+}
+
+.ui-state-hover {
+	background-color: #000080 !important;
+	background-image: linear-gradient(to bottom, #000080, #000080) !important; 
 }
 
 .ui-paginator,
 .ui-panel-titlebar {
-	background-color: #1515ab;
+	background-color: #000080;
 	color: white;
 	font-weight: bold;
 }
@@ -80,4 +89,8 @@ div#header label {
 
 .ui-button {
 	width: 85px;
+}
+
+.ui-separator {
+	background-color: black;
 }

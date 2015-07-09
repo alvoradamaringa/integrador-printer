@@ -13,13 +13,15 @@
 	<div id="page">
 		<p:layout fullPage="true">
 
-			<p:layoutUnit position="north" >
+			<p:layoutUnit position="north">
 				<div id="header">
 					<ui:insert name="header">
 						<ui:include src="/template/header.xhtml" />
 					</ui:insert>
 				</div>
+				<p:separator />
 			</p:layoutUnit>
+
 
 			<p:layoutUnit position="west">
 				<div id="menu">
@@ -37,7 +39,7 @@
 				</div>
 			</p:layoutUnit>
 
-			<p:layoutUnit position="south" >
+			<p:layoutUnit position="south">
 				<div id="footer" class="footer">
 					<ui:insert name="footer">
 						<ui:include src="/template/footer.xhtml" />
