@@ -11,52 +11,51 @@
 <h:body>
 
 	<ui:composition template="/template/template.xhtml">
-
 		<ui:define name="content">
-
-			<p:panel id="ConsultaDesfesa" header="Consulta Defesa"
-				style="text-align:left">
+			<h:form id="formConsultaDefesa" name="formConsultaDefesa">
+				<p:growl id="growl" />
+					<p:panel id="ConsultaDesfesa" header="Consulta Defesa">
 				
-				<p:panelGrid columns="6">
-					<h:outputLabel value="Nome: " />
-					<p:inputText id="nome" />
-					<h:outputLabel value="Data: " />
-					<p:calendar pattern="dd/MM/yyyy" />
-					<p:commandButton type="submit" value="Consultar" />
-					<p:commandButton id="novo" value="Novo" action="CadastroDefesa.xhtml" />					
-				</p:panelGrid>
-
-				<br></br>
+						<p:panelGrid columns="6">
+							<h:outputLabel value="Nome: " />
+							<p:inputText id="nome" value="#{defesaManagedBean.nomeAluno}"/>
+							<h:outputLabel value="Data: " />
+							<p:calendar id="data" pattern="dd/MM/yyyy" value="#{defesaManagedBean.data}"/>
+							<p:commandButton id="consultar" action="#{defesaManagedBean.consultarDefesa}" value="Consultar" process="@this nome data" update="tabela" />
+							<p:commandButton id="novo" value="Novo" action="#{defesaManagedBean.cadastrarDefesa}" />					
+						</p:panelGrid>
+						<br></br>
 				
-				<p:dataTable var="defesa" value="#{defesaManagedBean.defesas}"
-					rows="10" paginator="true"
-					emptyMessage="Registros não encontrados."
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15">
-					
-					<p:column headerText="Código"  width="30">
-						<h:outputText value="#{defesa.idDefesaAluno}" />
-					</p:column>
-
-					<p:column headerText="Aluno">
-						<h:outputText value="#{defesa.aluno.pessoa.nome}" />
-					</p:column>
-
-					<p:column headerText="Tema">
-						<h:outputText value="#{defesa.tema}" />
-					</p:column>
-
-					<p:column headerText="Nota">
-						<h:outputText value="#{defesa.nota}" />
-					</p:column>
-					
-					<p:column headerText="Status">
-						<h:outputText value="#{defesa.status}" />
-					</p:column>
-					
-				</p:dataTable>
+						<p:dataTable id="tabela" var="defesa" value="#{defesaManagedBean.defesas}"
+							rows="10" paginator="true"
+							emptyMessage="Registros não encontrados."
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15">
+							
+							<p:column headerText="Código"  width="30">
+								<h:outputText value="#{defesaManagedBean.defesa.idDefesaAluno}" />
+							</p:column>
+		
+							<p:column headerText="Aluno">
+								<h:outputText value="#{defesaManagedBean.defesa.aluno.pessoa.nome}" />
+							</p:column>
+		
+							<p:column headerText="Tema">
+								<h:outputText value="#{defesaManagedBean.defesa.tema}" />
+							</p:column>
+		
+							<p:column headerText="Nota">
+								<h:outputText value="#{defesaManagedBean.defesa.nota}" />
+							</p:column>
+							
+							<p:column headerText="Status">
+								<h:outputText value="#{defesaManagedBean.defesa.status}" />
+							</p:column>
+							
+						</p:dataTable>
 				
-			</p:panel>
+				</p:panel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 
