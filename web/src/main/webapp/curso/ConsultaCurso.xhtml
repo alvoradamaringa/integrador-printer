@@ -4,49 +4,62 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Projeto Integrador - Printer</title>
-</h:head>
 <h:body>
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
+			<h:form id="form">
+				<p:growl id="growl" />
+					<p:panel header="Consulta Cursos">
+						<p:panelGrid columns="4">
+							<h:outputLabel value="Descrição: " />
+							<p:inputText id="curso" 
+								value="{#{cursoManagedBean.curso}"/>
+							<p:commandButton id="consultar"
+								action="#{cursoManagedBean.consultarCurso}"
+								value="Consultar" process="@this curso" update="tabela" />
+							<p:commandButton id="novo" value="Novo" 
+								action="#{cursoManagedBean.salvarCurso}" />
+						</p:panelGrid>
+		
+						<br></br>
+		
+						<p:dataTable id="tabela" var="listcurso"
+							value="#{cursoManagedBean.listaCurso}" rows="10"
+							paginator="true" emptyMessage="Registros não encontrados."
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15">
+		
+							<p:column headerText="Código" width="100">
+								<h:outputText value="#{listcurso.idCurso}" />
+							</p:column>
+		
+							<p:column headerText="Descrição">
+								<h:outputText value="#{listcurso.descricao}" />
+							</p:column>
 
-			<p:panel header="Consulta Cursos">
-				<p:panelGrid columns="4">
-					<h:outputLabel value="Descrição: " />
-					<p:inputText id="descricao" />
-					<p:commandButton type="submit" value="Consultar" />
-					<p:commandButton id="novo" value="Novo" action="CadastroCurso.xhtml" />
-				</p:panelGrid>
+							<p:column headerText="Ações">
+								<p:commandButton id="editar" value="Editar"
+								action="#{cursoManagedBean.editarCurso}">
+									<f:setPropertyActionListener target="#{cursoManagedBean.curso}" value="#{listcurso}" />
+								</p:commandButton>
+								
+								<p:commandButton id="excluir" value="Excluir"
+								action="#{cursoManagedBean.excluirCurso}" update="curso form:growl">
+									<f:setPropertyActionListener target="#{cursoManagedBean.curso}" value="#{listcurso}" />
+									<p:confirm header="Confirmação" message="Você tem certeza?" icon="ui-icon-alert" />
+								</p:commandButton>
+								
+								<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+							        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+							    </p:confirmDialog>
+							</p:column>		
 
-				<br></br>
-
-				<p:dataTable var="curso" value="#{cursoManagedBean.cursos}"
-					rows="10" paginator="true"
-					emptyMessage="Registros não encontrados."
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15">
-
-					<p:column headerText="Código" width="30">
-						<h:outputText value="#{curso.idCurso}" />
-					</p:column>
-
-					<p:column headerText="Descrição">
-						<h:outputText value="#{curso.descricao}" />
-					</p:column>
-
-					<p:column width="10">
-						<p:commandButton icon="fa-pencil" />
-					</p:column>
-
-					<p:column width="10">
-						<p:commandButton icon="fa-trash" />
-					</p:column>
-
-				</p:dataTable>
-
-			</p:panel>
+		
+						</p:dataTable>
+		
+					</p:panel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
