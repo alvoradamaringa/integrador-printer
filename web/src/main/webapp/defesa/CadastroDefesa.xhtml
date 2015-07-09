@@ -5,57 +5,55 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Cadastro de Defesa - Projeto Integrador</title>
-
-</h:head>
-
 <ui:composition template="/template/template.xhtml">
 	<ui:define name="content">
-
 		<p:panel id="CadDefesa" header="Cadastro de Defesa">
-			<h:form>
+			<h:form id="formCadDefesa">
 				<p:panel id="panelDadosTrabalho" header="Dados do Trabalho">
 					<p:panelGrid columns="4">
 
 						<p:outputLabel value="Aluno:" for="aluno" />
-						<p:autoComplete id="aluno" dropdown="true"
-							style="margin-right:60px" />
+						<p:autoComplete id="aluno" dropdown="true" style="margin-right:60px" />
 
 						<h:outputLabel for="tema" value="Tema:" style="margin-left:80px" />
-						<p:inputText id="tema" />
+						<p:inputText id="tema" value="#{defesaManagedBean.defesa.tema}"/>
 
 						<h:outputLabel for="nota" value="Nota:" />
-						<p:inputText id="nota" />
+						<p:inputText id="nota" value="#{defesaManagedBean.defesa.nota}"/>
 
-						<p:outputLabel for="status" value="Status:"
-							style="margin-left:80px" />
-						<p:selectOneMenu id="status" value="#">
-							<f:selectItem itemLabel="Aprovado" itemValue="1" />
-							<f:selectItem itemLabel="Reprovado" itemValue="2" />
+						<p:outputLabel for="statusTrabalho" value="Status:" style="margin-left:80px" />
+						<p:selectOneMenu id="statusTrabalho" value="#{defesaManagedBean.defesa.status}"
+							requiredMessage="Campo Status do trabalho é obrigatório">
+							<f:selectItem itemLabel="Aprovado" itemValue="aprovado" />
+							<f:selectItem itemLabel="Reprovado" itemValue="reprovado" />
 						</p:selectOneMenu>
 
 					</p:panelGrid>
 				</p:panel>
 				<br />
 				<p:panel id="panelComentario" header="Comentários">
-					<p:panelGrid columns="3" style="width:600px">
+					<p:panelGrid columns="5" style="width:600px">
+						<h:outputLabel value="Professor: " />
+						<p:autoComplete id="professorComentario" value="#{defesaManagedBean.professorCurso}" completeMethod="#{defesaManagedBean.consultarProfessor}"
+                        var="professorCurso" itemLabel="#{professorCurso.professor.pessoa.nome}" itemValue="professorCurso" converter="professorCursoConverter" forceSelection="true" />
+ 
 						<h:outputLabel value="Comentário: " />
-						<p:inputText id="comentario" rows="6" cols="33"
-							style="width:291px" />
-						<p:commandButton value="Adicionar" />
+						<p:inputText id="comentario" value="#{defesaManagedBean.comentario}" rows="6" cols="33" style="width:291px" />
+						<p:commandButton value="Adicionar" action="#{defesaManagedBean.adicionarComentario}" process="panelComentario" update="tabelaComentarios" />
 					</p:panelGrid>
-					<p:dataTable var="comentarios" value="" style="width:389px">
+					<p:dataTable id="tabelaComentarios" var="comentario" value="#{defesaManagedBean.defesa.comentarios}" style="width:389px">
 						<p:column headerText="Professor">
-							<h:outputText value="Prof x" />
+							<h:outputText value="#{comentario.professorCurso.professor.pessoa.nome}" />
 						</p:column>
 
 						<p:column headerText="Comentário">
-							<h:outputText value="Prof x" />
+							<h:outputText value="#{comentario.comentario}" />
 						</p:column>
 
 						<p:column headerText="Ação">
-							<p:commandButton value="Remover" />
+							<p:commandButton value="Remover" action="#{defesaManagedBean.removerComentario}" update="tabelaComentarios">
+								<f:setPropertyActionListener target="#{defesaManagedBean.defesaComentario}" value="#{comentario}" />
+							</p:commandButton>
 						</p:column>
 					</p:dataTable>
 
@@ -64,34 +62,32 @@
 				<p:panel id="panelBanca" header="Banca">
 					<p:panelGrid columns="5" style="width:600px">
 						<h:outputLabel value="Professor: " />
-						<p:autoComplete id="professorBanca" dropdown="true"
-							style="margin-right:60px" />
+						<p:autoComplete id="professorBanca" dropdown="true" value="#{defesaManagedBean.professor}" style="margin-right:60px" />
 						<h:outputLabel value="Tipo: " />
-						<p:selectOneMenu id="status" value="#">
-							<f:selectItem itemLabel="Orientador" itemValue="1" />
-							<f:selectItem itemLabel="Convidade" itemValue="2" />
+						<p:selectOneMenu id="statusBanca" value="#{defesaManagedBean.tipoProfessor}">
+							<f:selectItem itemLabel="Orientador" itemValue="orientador" />
+							<f:selectItem itemLabel="Convidado" itemValue="convidado" />
 						</p:selectOneMenu>
-						<p:commandButton value="Adicionar" />
+						<p:commandButton value="Adicionar" action="#{defesaManagedBean.adicionarProfessor}"/>
 					</p:panelGrid>
-					<p:dataTable var="professores" value="" style="width:389px">
+					<p:dataTable var="professores" value="#{defesaManagedBean.bancaProfessor}" style="width:389px">
 						<p:column headerText="Professor">
-							<h:outputText value="Prof x" />
+							<h:outputText value="#{defesaManagedBean.bancaProfessor.professor.pessoa.nome}" />
 						</p:column>
 
 						<p:column headerText="Tipo">
-							<h:outputText value="Orientador" />
+							<h:outputText value="#{defesaManagedBean.bancaProfessor.tipoProfessor}" />
 						</p:column>
 
 						<p:column headerText="Ação">
-							<p:commandButton value="Remover" />
+							<p:commandButton id="removeProfessor" value="Remover" action="#{defesaManagedBean.removerProfessor}" update="professores"/>
 						</p:column>
 					</p:dataTable>
 
 				</p:panel>
 				<p:panelGrid columns="3">
 					<p:commandButton id="salvar"
-						action="#{defesaManagedBean.cadastrarDefesa}" type="submit"
-						value="Salvar" />
+						action="#{defesaManagedBean.cadastrarDefesa}" type="submit" value="Salvar" />
 					<p:commandButton id="limpar" type="reset" value="Limpar" />
 					<p:commandButton id="cancelar" value="Cancelar"
 						action="ConsultaDefesa.xhtml" immediate="true" />

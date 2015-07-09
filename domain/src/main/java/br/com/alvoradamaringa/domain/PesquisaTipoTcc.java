@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PESQUISATIPOTCC")
-public class PesquisaTipoTcc  implements Serializable {
-	
+public class PesquisaTipoTcc implements Serializable {
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,41 @@ public class PesquisaTipoTcc  implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime
+				* result
+				+ ((idPesquisaTipoTcc == null) ? 0 : idPesquisaTipoTcc
+						.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PesquisaTipoTcc other = (PesquisaTipoTcc) obj;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (idPesquisaTipoTcc == null) {
+			if (other.idPesquisaTipoTcc != null)
+				return false;
+		} else if (!idPesquisaTipoTcc.equals(other.idPesquisaTipoTcc))
+			return false;
+		return true;
 	}
 
 }

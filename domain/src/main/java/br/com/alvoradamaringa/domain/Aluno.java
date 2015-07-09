@@ -22,7 +22,7 @@ public class Aluno implements Serializable {
 	@JoinColumn(name = "ID_PESSOA")
 	private Pessoa pessoa;
 	private String ra;
-	
+
 	public void adicionarPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
@@ -45,6 +45,43 @@ public class Aluno implements Serializable {
 
 	public void setRa(String ra) {
 		this.ra = ra;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idAluno == null) ? 0 : idAluno.hashCode());
+		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
+		result = prime * result + ((ra == null) ? 0 : ra.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		if (idAluno == null) {
+			if (other.idAluno != null)
+				return false;
+		} else if (!idAluno.equals(other.idAluno))
+			return false;
+		if (pessoa == null) {
+			if (other.pessoa != null)
+				return false;
+		} else if (!pessoa.equals(other.pessoa))
+			return false;
+		if (ra == null) {
+			if (other.ra != null)
+				return false;
+		} else if (!ra.equals(other.ra))
+			return false;
+		return true;
 	}
 
 }

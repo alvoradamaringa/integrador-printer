@@ -16,7 +16,7 @@ public abstract class GenericDAOImpl<K, T> implements GenericDAO<K, T> {
 	@SuppressWarnings("unchecked")
 	public GenericDAOImpl() {
 		clazz = (Class<T>) ((ParameterizedType) getClass()  
-                .getGenericSuperclass()).getActualTypeArguments()[0];  
+                .getGenericSuperclass()).getActualTypeArguments()[1];  
 	}
 
 	@Override
@@ -26,12 +26,16 @@ public abstract class GenericDAOImpl<K, T> implements GenericDAO<K, T> {
 
 	@Override
 	public void salvar(T object) {
+		entityManager.getTransaction().begin();
 		entityManager.merge(object);
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public void deletar(T object) {
-		entityManager.remove(object);
+		entityManager.getTransaction().begin();
+		entityManager.remove(entityManager.merge(object));
+		entityManager.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")

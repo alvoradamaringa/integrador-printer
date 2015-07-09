@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "DEFESACOMENTARIO")
 public class DefesaComentario implements Serializable {
-	
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +49,55 @@ public class DefesaComentario implements Serializable {
 
 	public String getComentario() {
 		return comentario;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((comentario == null) ? 0 : comentario.hashCode());
+		result = prime * result
+				+ ((defesaAluno == null) ? 0 : defesaAluno.hashCode());
+		result = prime
+				* result
+				+ ((idDefesaComentario == null) ? 0 : idDefesaComentario
+						.hashCode());
+		result = prime * result
+				+ ((professorCurso == null) ? 0 : professorCurso.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DefesaComentario other = (DefesaComentario) obj;
+		if (comentario == null) {
+			if (other.comentario != null)
+				return false;
+		} else if (!comentario.equals(other.comentario))
+			return false;
+		if (defesaAluno == null) {
+			if (other.defesaAluno != null)
+				return false;
+		} else if (!defesaAluno.equals(other.defesaAluno))
+			return false;
+		if (idDefesaComentario == null) {
+			if (other.idDefesaComentario != null)
+				return false;
+		} else if (!idDefesaComentario.equals(other.idDefesaComentario))
+			return false;
+		if (professorCurso == null) {
+			if (other.professorCurso != null)
+				return false;
+		} else if (!professorCurso.equals(other.professorCurso))
+			return false;
+		return true;
 	}
 
 }

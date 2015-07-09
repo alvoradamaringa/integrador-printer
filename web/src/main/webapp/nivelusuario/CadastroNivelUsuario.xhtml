@@ -6,32 +6,28 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Cadastro Nivel Usuario</title>
+	<title>Cadastro Nível Usuário</title>
 
 </h:head>
 
 <ui:composition template="/template/template.xhtml">
 	<ui:define name="content">
 
-		<p:panel id="NivelUsuario" header="Nivel de Usuario"
+		<p:panel id="NivelUsuario" header="Nível de Usuário"
 			style="text-align:left">
 			<h:form>
+				<p:growl id="growl" />
 				<p:panelGrid columns="2" style="margin:left;text-align:left">
-
 					<h:outputLabel for="id" value="Código:" />
-					<p:inputText id="id" readonly="true" />
-
+					<p:inputText id="id" value="#{nivelUsuarioManagedBean.nivelUsuario.idNivelUsuario}" readonly="true" disabled="true"/>
 					<h:outputLabel for="descricao" value="Descrição:" />
-					<p:inputText id="descricao" required="true" />
-
+					<p:inputText id="descricao" value="#{nivelUsuarioManagedBean.nivelUsuario.descricao}" required="true" requiredMessage="Campo descrição é obrigatório" />
 				</p:panelGrid>
-
-				<br></br>
-				
-				<p:commandButton id="salvar" action="#{nivelUsuarioManagedBean.salvarNivelUsuario}" type="submit" value="Salvar" />
-				<p:commandButton id="limpar" type="reset" value="Limpar" />
-				<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
-				
+				<p:panelGrid columns="3">
+					<p:commandButton id="salvar" ajax="false" action="#{nivelUsuarioManagedBean.salvarNivelUsuario}" type="submit" value="Salvar" />
+					<p:commandButton id="limpar" type="reset" value="Limpar" />
+					<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
+				</p:panelGrid>
 			</h:form>
 		</p:panel>
 

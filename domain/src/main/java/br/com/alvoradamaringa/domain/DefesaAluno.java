@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "DEFESAALUNO")
 public class DefesaAluno implements Serializable {
-	
+
 	private static final long serialVersionUID = 23L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +41,8 @@ public class DefesaAluno implements Serializable {
 	private PesquisaTipoTcc pesquisaTipoTcc;
 	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = DefesaComentario.class)
 	private List<DefesaComentario> comentarios = new ArrayList<DefesaComentario>();
+	@OneToMany(mappedBy = "defesaAluno", fetch = FetchType.LAZY, targetEntity = BancaProfessor.class)
+	private List<BancaProfessor> banca = new ArrayList<BancaProfessor>();
 	private BigDecimal nota;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA")
@@ -62,6 +64,14 @@ public class DefesaAluno implements Serializable {
 		defesaComentario.adicionarComentario(defesaAluno, professorCurso,
 				comentario);
 		this.comentarios.add(defesaComentario);
+	}
+
+	public void removerComentario(DefesaComentario defesaComentario) {
+		this.comentarios.remove(defesaComentario);
+	}
+
+	public void adicionarBancaProfessores(List<BancaProfessor> banca) {
+		this.banca.addAll(banca);
 	}
 
 	public Long getIdDefesaAluno() {
@@ -110,6 +120,82 @@ public class DefesaAluno implements Serializable {
 
 	public void setTema(String tema) {
 		this.tema = tema;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aluno == null) ? 0 : aluno.hashCode());
+		result = prime * result + ((banca == null) ? 0 : banca.hashCode());
+		result = prime * result
+				+ ((comentarios == null) ? 0 : comentarios.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result
+				+ ((idDefesaAluno == null) ? 0 : idDefesaAluno.hashCode());
+		result = prime * result + ((nota == null) ? 0 : nota.hashCode());
+		result = prime * result
+				+ ((pesquisaTipoTcc == null) ? 0 : pesquisaTipoTcc.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((tema == null) ? 0 : tema.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DefesaAluno other = (DefesaAluno) obj;
+		if (aluno == null) {
+			if (other.aluno != null)
+				return false;
+		} else if (!aluno.equals(other.aluno))
+			return false;
+		if (banca == null) {
+			if (other.banca != null)
+				return false;
+		} else if (!banca.equals(other.banca))
+			return false;
+		if (comentarios == null) {
+			if (other.comentarios != null)
+				return false;
+		} else if (!comentarios.equals(other.comentarios))
+			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (idDefesaAluno == null) {
+			if (other.idDefesaAluno != null)
+				return false;
+		} else if (!idDefesaAluno.equals(other.idDefesaAluno))
+			return false;
+		if (nota == null) {
+			if (other.nota != null)
+				return false;
+		} else if (!nota.equals(other.nota))
+			return false;
+		if (pesquisaTipoTcc == null) {
+			if (other.pesquisaTipoTcc != null)
+				return false;
+		} else if (!pesquisaTipoTcc.equals(other.pesquisaTipoTcc))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (tema == null) {
+			if (other.tema != null)
+				return false;
+		} else if (!tema.equals(other.tema))
+			return false;
+		return true;
 	}
 
 }
