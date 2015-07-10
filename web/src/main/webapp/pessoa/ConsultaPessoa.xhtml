@@ -5,32 +5,29 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+<h:head>
+	<title>Projeto Integrador - Printer</title>
+</h:head>
 <h:body>
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
-		
-			<p:growl id="growl" />
 			<p:panel id="Consultapessoa" header="Consulta de Pessoa">
 				<p:panelGrid columns="4">
 					<h:outputLabel value="Nome: " />
-					<p:inputText id="nome" 
-					value="#{pessoaManagedBean.pessoa}"/>
-					<p:commandButton id="consultar"
-					action="#{pessoaManagedBean.consultarPessoa}"
-					value="Consultar" process="@this consulta" update="tabela" />
-					<p:commandButton id="novo" value="Novo" action="#{pessoaManagedBean.novaPessoa}" />					
+					<p:inputText id="nome" />
+					<p:commandButton type="submit" value="Consultar" />
+					<p:commandButton id="novo" value="Novo" action="CadastroPessoa.xhtml" />					
 				</p:panelGrid>
 
 				<br></br>
 
-				<p:dataTable id="tabela" var="pessoa" 
-					value="#{pessoaManagedBean.pessoas}"
+				<p:dataTable var="pessoa" value="#{pessoaManagedBean.pessoas}"
 					rows="10" paginator="true"
 					emptyMessage="Registros não encontrados."
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15">
 
-					<p:column headerText="Código"  width="70">
+					<p:column headerText="Código"  width="30">
 						<h:outputText value="#{pessoa.idPessoa}" />
 					</p:column>
 
@@ -57,23 +54,7 @@
 					<p:column headerText="Data Nascimento">
 						<h:outputText value="#{pessoa.dataNascimento}" />
 					</p:column>
-						<p:column headerText="Ações">
-							<p:commandButton id="editar" value="Editar"
-							action="#{pessoaManagedBean.editarUsuario()}">
-								<f:setPropertyActionListener target="#{pessoaManagedBean.pessoa}" value="#{pessoa}" />
-							</p:commandButton>
-							
-							<p:commandButton id="excluir" value="Excluir"
-							action="#{pessoaManagedBean.excluirUsuario}" update="tabela form:growl">
-								<f:setPropertyActionListener target="#{pessoaManagedBean.pessoa}" value="#{pessoa}" />
-								<p:confirm header="Confirmação" message="Você tem certeza?" icon="ui-icon-alert" />
-							</p:commandButton>
-							
-							<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-						        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-						    </p:confirmDialog>
-						</p:column>
+
 				</p:dataTable>
 
 			</p:panel>
