@@ -22,10 +22,10 @@ public class PessoaManagedBean implements Serializable {
 	private List<Pessoa> listaPessoa;
 	private String nome;
 	private String cpf;
+	private Boolean professor;
 	
 	@EJB
 	private PessoaService pessoaService;
-	
 	
 	public void novaPessoa() {
 		pessoa = new Pessoa();
@@ -34,7 +34,7 @@ public class PessoaManagedBean implements Serializable {
 
 	public void salvarPessoa() {
 		try {
-			pessoaService.salvarPessoa(pessoa);
+//			pessoaService.salvarPessoa(pessoa);
 			consultarPessoa();
 			FacesUtils.redirect(TELA_CONSULTA);
 		} catch (Exception ex) {
@@ -44,7 +44,7 @@ public class PessoaManagedBean implements Serializable {
 
 	public void editarUsuario() {
 		try {
-			pessoa = pessoaService.alterarPessoa(pessoa);
+//			pessoa = pessoaService.alterarPessoa(pessoa);
 			FacesUtils.redirect(TELA_CADASTRO);
 		} catch (Exception ex) {
 			FacesUtils.redirect(TELA_CONSULTA);
@@ -53,8 +53,8 @@ public class PessoaManagedBean implements Serializable {
 
 	public void excluirUsuario() {
 		try {
-			pessoaService.excluirPessoa(pessoa);
-			listaPessoa = pessoaService.consultarPessoa(nome, cpf);
+			pessoaService.excluirProfessor(null);
+//			listaPessoa = pessoaService.consultarPessoa(nome, cpf);
 		} catch (IntegridadeException ex) {
 			FacesUtils
 					.adicionarMensagemErro("Este registro já está sendo utilizado!");
@@ -66,7 +66,7 @@ public class PessoaManagedBean implements Serializable {
 
 	public void consultarPessoa() {
 		
-		listaPessoa = pessoaService.consultarPessoa(nome, cpf);
+//		listaPessoa = pessoaService.consultarPessoa(nome, cpf);
 	}
 
 	

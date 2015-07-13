@@ -46,7 +46,7 @@ public class PessoaServiceBean implements PessoaService {
 	}
 
 	@Override
-	public void adicionarProfessor(Professor professor)
+	public void salvarProfessor(Professor professor)
 			throws CpfNaoInformadoException, CpfDuplicadoException {
 
 		if (professor.getCpf() == null) {
