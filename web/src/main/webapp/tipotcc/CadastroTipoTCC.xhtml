@@ -16,15 +16,15 @@
 			<h:form>
 				<p:panelGrid columns="2">
 					<h:outputLabel for="identificador" value="ID:" />
-					<p:inputText id="identificador" readonly="true" />
+					<p:inputText id="identificador" readonly="true" value="#{tipoTccManagedBean.pesquisaTipoTcc.idPesquisaTipoTcc}"/>
 					<h:outputLabel for="desc" value="Descrição:" />
-					<p:inputText id="desc" />
+					<p:inputText id="desc" value="#{tipoTccManagedBean.pesquisaTipoTcc.descricao}"/>
 				</p:panelGrid>
 				<br />
 				<p:panelGrid columns="3">
-					<p:commandButton id="salvar" action="#{usuarioManagedBean.cadastrarUsuario}" type="submit" value="Salvar" />
+					<p:commandButton id="salvar" action="#{tipoTccManagedBean.CadastrarTipoTcc}" type="submit" value="Salvar" />
 					<p:commandButton id="limpar" type="reset" value="Limpar" />
-					<p:commandButton id="cancelar" value="Cancelar" action="ConsultaNivelUsuario.xhtml" immediate="true" />
+					<p:commandButton id="cancelar" value="Cancelar" action="ConsultaTipoTCC.xhtml" immediate="true" />
 				</p:panelGrid>
 			</h:form>
 		</p:panel>
